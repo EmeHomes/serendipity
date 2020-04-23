@@ -1,0 +1,103 @@
+/*
+    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    width: 100%;
+    padding: 1rem;
+    background: #ffffff;
+    color: #3f3f3f;
+    transition: all 0.3s;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 #9ab8b5;
+}
+
+#sidebar .username {
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+    /*Si se añaden más funcionalidades esta línea hay que quitarla, es una ñapa estética*/
+    margin-bottom: 12rem;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #5accc2;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #5accc2;
+    background: #fff;
+}
+
+.list-unstyled {
+    text-align: left;
+}
+.user-name{
+    font-size: 1.5rem !important;
+}
+
+.contenedor-comenzada {
+    padding: 40px;
+    background-color: #d5f0ee;
+    margin-bottom: 1rem;
+    }
+
+.tarea-comenzada {
+    padding: 20px;
+    background-color: #b8e5e2;
+    margin-bottom: 1rem;
+}
+
+.comenzada {
+    border: 2px solid white;
+    background-color: #b8e5e2;
+    color: white;
+}
+
+.titulo-comenzadas {
+    font-weight: bold;
+    color: #94dad3;
+}
+
+.contenedor-pendiente {
+    padding: 40px;
+    background-color: #b7e2cd;
+    margin-bottom: 1rem;
+    }
+
+.tarea-pendiente {
+    padding: 20px;
+    background-color: #84ceaa;
+    margin-bottom: 1rem;
+}
+
+.pendiente {
+    border: 2px solid white;
+    background-color: #84ceaa;
+    color: white;
+}
+
+.titulo-pendientes {
+    font-weight: bold;
+    color: #33ac71;
+}

@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.home-page {
+    margin: 1rem;
+
+}
+
+.nav-link {
+    margin-right: 5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .active>.nav-link {
+    color: #5accc2 !important;
+}
+

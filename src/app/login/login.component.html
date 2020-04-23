@@ -1,0 +1,24 @@
+<app-header-app></app-header-app>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Login Form -->
+    <form>
+        <input type="text" id="login" class="fadeIn first" name="login" placeholder="Nombre de usuario">
+        <input type="text" id="password" class="fadeIn second" name="password" placeholder="Contraseña de usuario">
+        <input type="submit" (click)="loginCheck()" class="fadeIn third" value="Inicia sesión">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">He olvidado la contraseña</a>
+    </div>
+
+  </div>
+</div>

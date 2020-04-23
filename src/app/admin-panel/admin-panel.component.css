@@ -1,0 +1,50 @@
+/*
+    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#sidebar {
+    width: 100%;
+    padding: 1rem;
+    background: #ffffff;
+    color: #3f3f3f;
+    transition: all 0.3s;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 #9ab8b5;
+}
+
+.contenedor-comenzada {
+    padding: 40px;
+    background-color: #d5f0ee;
+    margin-bottom: 1rem;
+    }
+
+.titulo-comenzadas {
+    font-weight: bold;
+    color: #94dad3;
+}
+
+.table-first {
+    background-color: #50a79f;
+    color: white;
+}
+
+th, td {
+    border: 1px solid	#494c4c;
+}
+
+.estado {
+    width: 7%;
+    text-align: center;
+}
+
+.general {
+    width: 18%;
+    text-align: center;
+}
+
+.accion {
+    width: 3%;
+}
