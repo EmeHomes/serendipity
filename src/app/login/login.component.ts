@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginCheck() {
+    
     this.router.navigate(['user-view']);
   }
 

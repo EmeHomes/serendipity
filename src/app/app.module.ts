@@ -12,6 +12,10 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { UsPageComponent } from './us-page/us-page.component';
+import { ClientPageComponent } from './client-page/client-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderAppComponent,
     AdminPanelComponent,
     UserViewComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    ProfilePageComponent,
+    UsPageComponent,
+    ClientPageComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,

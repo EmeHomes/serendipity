@@ -1,0 +1,23 @@
+.datos {
+    background-color: #37918aa8;
+    color: white;
+    padding: 3rem;
+}
+
+.titulo{
+    font-weight: bold;
+}
+
+.separador {
+    background-color: white;
+}
+
+.item-list {
+    color: #abcfcc;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.editar {
+    max-width: 100%;
+}

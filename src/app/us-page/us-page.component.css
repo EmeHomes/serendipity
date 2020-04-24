@@ -1,0 +1,29 @@
+
+.banda {
+    padding: 2rem;
+    text-align: center;
+    background-color: #37918aa8;
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.titulo {
+    padding-top: 2rem;
+    color: #3d3a3a;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+.texto {
+    text-align: justify;
+    max-height: 90%;
+}
+
+.relleno {
+    padding-top: 2.5rem;
+    opacity: 0.6;
+    max-height: 90%;
+}
+
