@@ -1,0 +1,25 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+.distancia{
+    margin-top: 10rem;
+}
+
+.box {
+    border-radius:5px; 
+    box-shadow:0 0 10px #295350bb; 
+    border: 1px solid #749d9e;
+    margin-left: 1rem;
+    background-image: url(../../assets/images/portalapp.jpg);
+    min-height: 30rem;
+}
+
+.banda {
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: #37918aa8;
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+}

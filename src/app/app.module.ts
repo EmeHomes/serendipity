@@ -16,6 +16,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { UsPageComponent } from './us-page/us-page.component';
 import { ClientPageComponent } from './client-page/client-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { WebPageComponent } from './web-page/web-page.component';
+import { CalendarBoxComponent } from './calendar-box/calendar-box.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     ProfilePageComponent,
     UsPageComponent,
     ClientPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    WebPageComponent,
+    CalendarBoxComponent
   ],
   imports: [
     BrowserModule,
