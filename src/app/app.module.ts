@@ -18,6 +18,8 @@ import { ClientPageComponent } from './client-page/client-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { WebPageComponent } from './web-page/web-page.component';
 import { CalendarBoxComponent } from './calendar-box/calendar-box.component';
+import { HttpClientModule }    from '@angular/common/http';
+import { AppPageComponent } from './app-page/app-page.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,13 @@ import { CalendarBoxComponent } from './calendar-box/calendar-box.component';
     ClientPageComponent,
     ContactPageComponent,
     WebPageComponent,
-    CalendarBoxComponent
+    CalendarBoxComponent,
+    AppPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
