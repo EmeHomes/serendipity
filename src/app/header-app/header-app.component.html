@@ -10,17 +10,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                <a class="nav-link pointer" [routerLink]="['/web-page']">Mi portal</a>
+                <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link pointer" [routerLink]="['/app-page']" >Mi portal</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link pointer" [routerLink]="['/user-view']">Mis tareas</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link pointer" [routerLink]="['/user-view']">Mi perfil</a>
+                <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link pointer">Mi perfil</a>
               </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/home']">
+                    <a class="nav-link" (click)="logout()">
                         <i class="fas fa-power-off"></i>
                     </a>
                 </li>

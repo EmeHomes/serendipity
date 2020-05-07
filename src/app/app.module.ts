@@ -16,10 +16,10 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { UsPageComponent } from './us-page/us-page.component';
 import { ClientPageComponent } from './client-page/client-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
-import { WebPageComponent } from './web-page/web-page.component';
 import { CalendarBoxComponent } from './calendar-box/calendar-box.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { AppPageComponent } from './app-page/app-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,6 @@ import { AppPageComponent } from './app-page/app-page.component';
     UsPageComponent,
     ClientPageComponent,
     ContactPageComponent,
-    WebPageComponent,
     CalendarBoxComponent,
     AppPageComponent
   ],
@@ -45,6 +44,7 @@ import { AppPageComponent } from './app-page/app-page.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

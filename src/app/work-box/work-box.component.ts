@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../models/task';
+import { TaskService } from '../services/task.service';
+import { SessionService } from '../session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-work-box',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkBoxComponent implements OnInit {
 
-  constructor() { }
+  tasks: [];
+
+  constructor(private taskService: TaskService, private sessionService: SessionService, private router: Router) { }
 
   ngOnInit(): void {
+    if(!this.sessionService.token) {
+      this.router.navigate(['login']);
+    }
+    this.taskService.findAll().subscribe(res => this.tasks = res);
   }
 
 }

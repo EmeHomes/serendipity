@@ -9,11 +9,10 @@
     <!-- Tabs Titles -->
 
     <!-- Login Form -->
-    <form>
-        <input type="text" id="login" class="fadeIn first" name="login" placeholder="Nombre de usuario">
-        <input type="text" id="password" class="fadeIn second" name="password" placeholder="Contraseña de usuario">
-        <input type="submit" (click)="loginCheck()"  class="fadeIn third" value="Inicia sesión">
-    </form>
+
+      <input type="text" id="userName" [(ngModel)]="userName" class="fadeIn first" placeholder="Nombre de usuario">
+      <input type="password" id="password" [(ngModel)]="password" class="fadeIn second" placeholder="Contraseña de usuario">
+      <button type="button" (click)="loginCheck()"  class="fadeIn third"> Iniciar Sesión</button>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
