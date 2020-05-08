@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { LoginComponent } from './login/login.component';
-import { UserViewComponent } from './user-view/user-view.component';
-import { UsPageComponent } from './us-page/us-page.component';
-import { ClientPageComponent } from './client-page/client-page.component';
-import { AppPageComponent } from './app-page/app-page.component';
+import { HomePageComponent } from './pages/web/home-page/home-page.component';
+import { LoginComponent } from './pages/web/login/login.component';
+import { UserViewComponent } from './pages/app/user-view/user-view.component';
+import { UsPageComponent } from './pages/web/us-page/us-page.component';
+import { ClientPageComponent } from './pages/web/client-page/client-page.component';
+import { AppPageComponent } from './pages/app/app-page/app-page.component';
 
 const routes: Routes = [
   

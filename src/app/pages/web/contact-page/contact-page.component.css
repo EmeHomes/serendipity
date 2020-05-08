@@ -1,5 +1,6 @@
 .datos {
-    background-color: #37918aa8;
+    background: rgb(55,145,138);
+    background: linear-gradient(0deg, rgba(55,145,138,1) 33%, rgba(212,248,232,1) 62%, rgba(212,248,232,1) 89%);
     color: white;
     padding: 3rem;
 }

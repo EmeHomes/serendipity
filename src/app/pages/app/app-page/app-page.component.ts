@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppPageService } from './app-page.service';
-import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-app-page',
@@ -9,14 +8,10 @@ import { SessionService } from '../session.service';
 })
 export class AppPageComponent implements OnInit {
 
-  saludo: string;
-
-  constructor(private appPageService: AppPageService, private sessionService: SessionService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.appPageService.obtenerSaludo().subscribe( respuesta => {
-      this.saludo = respuesta.message
-    });
+  
   }
 
 }

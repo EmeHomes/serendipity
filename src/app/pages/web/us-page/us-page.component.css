@@ -8,6 +8,11 @@
     width: 100%;
 }
 
+.background {
+    background: rgb(55,145,138);
+    background: linear-gradient(180deg, rgba(55,145,138,1) 33%, rgba(212,248,232,1) 62%, rgba(212,248,232,1) 89%);
+}
+
 .titulo {
     padding-top: 2rem;
     color: #3d3a3a;
