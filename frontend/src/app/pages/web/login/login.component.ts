@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
 
   loginCheck() {
     this.loginService.login(this.userName, this.password).subscribe(res => {
-      console.log(res);
       if(res && res.token) {
         this.sessionService.token = res.token;
         this.router.navigate(['user-view']);
