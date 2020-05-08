@@ -11,4 +11,14 @@ export class UsPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  scrollTo(elementId: string): void { 
+
+    if ('top' === elementId ) {
+      top.scrollTo(0,0);
+    }
+
+    const element = document.getElementById(elementId);
+    element.scrollIntoView({behavior: "smooth"})
+}
 }

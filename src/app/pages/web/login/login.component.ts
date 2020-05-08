@@ -10,8 +10,8 @@ import { SessionService } from '../../../session.service';
 })
 export class LoginComponent implements OnInit {
 
-  userName: string;
-  password: string;
+  userName: string = "Emortri";
+  password: string = "Emortri";
   
   constructor(private router: Router, private loginService: LoginService, private sessionService: SessionService) { }
 

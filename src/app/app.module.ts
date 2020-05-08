@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/web/home-page/home-page.component';
 import { HeaderWebComponent } from './pages/web/header-web/header-web.component';
 import { LoginComponent } from './pages/web/login/login.component';
-import { UserBoxComponent } from './pages/app/user-box/user-box.component';
 import { WorkBoxComponent } from './pages/app/work-box/work-box.component';
 import { HeaderAppComponent } from './pages/app/header-app/header-app.component';
 import { AdminPanelComponent } from './pages/app/admin-panel/admin-panel.component';
@@ -26,7 +25,6 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     HeaderWebComponent,
     LoginComponent,
-    UserBoxComponent,
     WorkBoxComponent,
     HeaderAppComponent,
     AdminPanelComponent,

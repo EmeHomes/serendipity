@@ -11,13 +11,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link pointer" [routerLink]="['/app-page']" >Mi portal</a>
+                <a class="nav-link pointer" [routerLink]="['/user-view']" >Mi portal</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link pointer" [routerLink]="['/user-view']">Mis tareas</a>
-                </li>
-                <li class="nav-item" routerLinkActive="active">
-                  <a class="nav-link pointer">Mi perfil</a>
+                  <a class="nav-link pointer" [routerLink]="['/user-box']">Mi perfil</a>
               </li>
                 <li class="nav-item">
                     <a class="nav-link" (click)="logout()">

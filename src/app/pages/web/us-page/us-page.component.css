@@ -17,7 +17,6 @@
     
 }
 
-
 .titulo {
     padding-top: 3rem;
     color: #3d3a3a;
@@ -27,11 +26,7 @@
     
 }
 
-
-
 .meet .btn {
-    margin-top: 30%;
-    align-items: center;
     background-color: white;
     color: #37918a;
     font-size: 20px;
@@ -44,7 +39,6 @@
   .meet .btn:hover {
     background-color: #ffb367;
   }
-
 
 .texto {
     margin-left: 2rem;
@@ -60,3 +54,7 @@
     max-height: 30%;
 }
 
+.justify-content-center {
+    align-items: center;
+    height: 100%;
+}
