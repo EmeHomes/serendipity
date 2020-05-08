@@ -7,6 +7,11 @@
     cursor: pointer;
 }
 
+.nav-item :hover {
+    color: #ffb367;
+}
+
 * {
     font-family: 'Roboto Condensed', sans-serif !important;
 }
+

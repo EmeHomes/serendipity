@@ -1,27 +1,55 @@
-
 .banda {
     padding: 2rem;
     text-align: center;
-    background-color: #37918aa8;
+    background-color: #37918a;
     color: white;
     font-size: 1.5rem;
     width: 100%;
 }
 
-.background {
+.backRow {
     background: rgb(55,145,138);
-    background: linear-gradient(180deg, rgba(55,145,138,1) 33%, rgba(212,248,232,1) 62%, rgba(212,248,232,1) 89%);
+    background: linear-gradient(180deg, rgba(55,145,138,1) 15%, rgba(120,199,193,1) 86%);
 }
 
-.titulo {
-    padding-top: 2rem;
-    color: #3d3a3a;
-    text-align: center;
-    font-weight: bold;
+.backCol {
+    background-color: #fff;
     
 }
 
+
+.titulo {
+    padding-top: 3rem;
+    color: #3d3a3a;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5rem;
+    
+}
+
+
+
+.meet .btn {
+    margin-top: 30%;
+    align-items: center;
+    background-color: white;
+    color: #37918a;
+    font-size: 20px;
+    padding: 15px 27px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .meet .btn:hover {
+    background-color: #ffb367;
+  }
+
+
 .texto {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 9rem;
     text-align: justify;
     max-height: 90%;
 }
@@ -29,6 +57,6 @@
 .relleno {
     padding-top: 2.5rem;
     opacity: 0.6;
-    max-height: 90%;
+    max-height: 30%;
 }
 
