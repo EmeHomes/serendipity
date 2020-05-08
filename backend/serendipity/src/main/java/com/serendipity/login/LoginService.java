@@ -12,8 +12,8 @@ public class LoginService {
     private static List<User> users = new ArrayList<>();
 
     static {
-        users.add(new User(1, 1, "mscasas", "123456", "María", "Sánchez", "Casas", "", "mscasas.94@gmail.com"));
-        users.add(new User(2, 1, "Emortri", "Emortri", "Emortri", "Emortri", "Emortri", "", "Emortri"));
+      users.add(new User(1, 1, "admin", "admin", "María", "Sánchez", "Casas", "", "mscasas.94@gmail.com"));
+      users.add(new User(2, 1, "user", "user", "Aitor", "Tilla", "Amarilla", "", "Emortri@gmail.com"));
     }
 
     public Login authentication(String userName, String password) {

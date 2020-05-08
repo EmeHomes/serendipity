@@ -10,8 +10,8 @@ import { SessionService } from '../../../session.service';
 })
 export class LoginComponent implements OnInit {
 
-  userName: string = "Emortri";
-  password: string = "Emortri";
+  userName: string;
+  password: string;
   
   constructor(private router: Router, private loginService: LoginService, private sessionService: SessionService) { }
 
@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   loginCheck() {
     this.loginService.login(this.userName, this.password).subscribe(res => {
+      console.log(res);
       if(res && res.token) {
         this.sessionService.token = res.token;
         this.router.navigate(['user-view']);
