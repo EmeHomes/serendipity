@@ -15,19 +15,19 @@ export class WorkBoxComponent implements OnInit {
   constructor(private taskService: TaskService, private sessionService: SessionService, private router: Router) { }
 
   ngOnInit(): void {
-      if(!this.sessionService.token) {
+      if (!this.sessionService.token) {
         this.router.navigate(['login']);
       }
       this.taskService.findAll().subscribe(res => this.tasks = res);
     }
-      scrollTo(elementId: string): void { 
+      scrollTo(elementId: string): void {
 
         if ('top' === elementId ) {
-          top.scrollTo(0,0);
+          top.scrollTo(0, 0);
         }
 
         const element = document.getElementById(elementId);
-        element.scrollIntoView({behavior: "smooth"})
+        element.scrollIntoView({behavior: 'smooth'});
     }
 
 }

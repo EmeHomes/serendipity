@@ -15,10 +15,10 @@ export class ProfileService {
 
     find(): Observable<any> {
       const id = this.sessionService.id;
-      return this.http.get(`${this.usersAPI}/${id}`);
+      return this.http.get(`${this.usersAPI}/1`);
     }
 
-    save (profile: []): Observable<any> {
-        return this.http.post<any>(this.usersAPI, profile)
+    save(profile: []): Observable<any> {
+        return this.http.post<any>(this.usersAPI, profile);
     }
 }

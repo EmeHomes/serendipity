@@ -1,7 +1,6 @@
 .profile {
     height: 100%;
-    margin-top: 9rem;
-    align-items: center;
+    margin-top: 8rem;
 }
 
 .backTop {
@@ -11,8 +10,9 @@
 }
 
 .image {
-    padding: 5px;
+    padding: 2rem;
     max-width: 10rem;
+    border-radius: 50%;
 }
 
 .company {
@@ -35,8 +35,16 @@
     cursor: pointer;
     border-radius: 5px;
   }
-  
+
   .meet .btn:hover {
     background-color: #ffb367;
     color: white;
   }
+
+.container-fluid {
+  width: 100%;
+  padding-right: 0px !important;
+  padding-left: 0px  !important;
+  margin-right: auto;
+  margin-left: auto;
+}

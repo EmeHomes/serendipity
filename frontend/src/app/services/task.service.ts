@@ -13,5 +13,4 @@ export class TaskService {
     findAll(): Observable<any> {
         return this.http.get(`${this.URL}`);
     }
-   
 }
