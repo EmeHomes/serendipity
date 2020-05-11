@@ -2,7 +2,7 @@
 
     <div class="col-md-12">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-            <a class="navbar-brand" [routerLink]="['/user-view']">
+            <a class="navbar-brand" (click)="scrollTo('top')" [routerLink]="['/user-view']">
                 <img src="../../../../assets/images/logoapp.png" width="120" class="d-inline-block align-top img-fluid" alt="logoapp">
               </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,10 +11,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link pointer" [routerLink]="['/user-view']" >Mi portal</a>
+                <a class="nav-link pointer" (click)="scrollTo('top')" [routerLink]="['/user-view']" >Mi portal</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                  <a class="nav-link pointer" [routerLink]="['/user-box']">Mi perfil</a>
+                  <a class="nav-link pointer" [routerLink]="['/profile-page']">Mi perfil</a>
               </li>
                 <li class="nav-item">
                     <a class="nav-link" (click)="logout()">

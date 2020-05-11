@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService} from '../../../services/profile.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-profile-page',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() { }
+  profile: [];
+  id;
+
+
+  constructor(private profileService: ProfileService, private router: Router) { }
 
   ngOnInit(): void {
+   
+    this.profileService.find().subscribe(res => this.profile = res);
+    
+    this.profileService.save(this.profile).subscribe(profile => this.profile = profile);
   }
 
 }

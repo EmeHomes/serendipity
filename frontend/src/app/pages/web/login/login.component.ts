@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
-import { SessionService } from '../../../session.service';
+import { LoginService } from '../../../services/login.service';
+import { SessionService } from '../../../services/session.service';
 
 @Component({
   selector: 'app-login',
@@ -21,14 +21,16 @@ export class LoginComponent implements OnInit {
   loginCheck() {
     this.loginService.login(this.userName, this.password).subscribe(res => {
       if(res && res.token) {
+
         this.sessionService.token = res.token;
+        this.sessionService.id    = res.id;
+        
         this.router.navigate(['user-view']);
         return;
       }
       alert('Datos incorrectos');
 
     });
-    //
   }
 
 }

@@ -13,5 +13,4 @@ export class LoginService {
     login(userName, password): Observable<any> {
         return this.http.get(`${this.loginURL}/${userName}/${password}`);
     }
-   
 }

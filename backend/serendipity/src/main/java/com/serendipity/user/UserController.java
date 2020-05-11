@@ -1,14 +1,13 @@
 package com.serendipity.user;
 
+import com.serendipity.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class UserController {
 
     @Autowired
@@ -25,4 +24,11 @@ public class UserController {
     public User getUsers(@PathVariable int id) {
         return this.userService.find(id);
     }
+
+
+    @PostMapping(path = "/users")
+    public User setUser(@RequestBody User user) {
+        return this.userService.save(user);
+    }
 }
+

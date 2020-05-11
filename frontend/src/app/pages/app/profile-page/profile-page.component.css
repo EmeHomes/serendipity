@@ -1,0 +1,42 @@
+.profile {
+    height: 100%;
+    margin-top: 9rem;
+    align-items: center;
+}
+
+.backTop {
+    background: rgb(42,162,153);
+    background: linear-gradient(180deg, rgba(42,162,153,1) 15%, rgba(255,255,255,0.6839110644257703) 87%);
+    align-items: center;
+}
+
+.image {
+    padding: 5px;
+    max-width: 10rem;
+}
+
+.company {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.form-row {
+    margin: 1rem;
+}
+
+
+.meet .btn {
+    margin: 1rem;
+    background-color: #37918a;
+    color: white;
+    font-size: 20px;
+    padding: 15px 27px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .meet .btn:hover {
+    background-color: #ffb367;
+    color: white;
+  }

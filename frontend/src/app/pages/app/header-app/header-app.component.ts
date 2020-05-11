@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../../../session.service';
+import { SessionService } from '../../../services/session.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,5 +18,15 @@ export class HeaderAppComponent implements OnInit {
     this.sessionService.token = "";
     this.router.navigate(['login']);
   }
+
+  scrollTo(elementId: string): void { 
+
+    if ('top' === elementId ) {
+      top.scrollTo(0,0);
+    }
+
+    const element = document.getElementById(elementId);
+    element.scrollIntoView({behavior: "smooth"})
+}
 
 }

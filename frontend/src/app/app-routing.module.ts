@@ -6,6 +6,7 @@ import { UserViewComponent } from './pages/app/user-view/user-view.component';
 import { UsPageComponent } from './pages/web/us-page/us-page.component';
 import { ClientPageComponent } from './pages/web/client-page/client-page.component';
 import { AppPageComponent } from './pages/app/app-page/app-page.component';
+import { ProfilePageComponent } from './pages/app/profile-page/profile-page.component';
 
 const routes: Routes = [
   
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'user-view', component: UserViewComponent },
   { path: 'us', component: UsPageComponent},
   { path: 'IClient', component: ClientPageComponent},
+  { path: 'profile-page', component: ProfilePageComponent},
   { path: '**', component: HomePageComponent},
   
 ];

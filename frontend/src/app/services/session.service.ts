@@ -7,5 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class SessionService {
     token: string;
+    id: number;
 }
 

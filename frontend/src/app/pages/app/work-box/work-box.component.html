@@ -1,4 +1,7 @@
-<div class="row">
+<div class="row line">
+    <div class="col-md-12 md-form active-cyan active-cyan-2 mb-3 searcher" id="started">
+        <input class="form-control" type="text" placeholder="Buscar tareas" aria-label="Search">
+    </div>
     <div class="col-md-2">
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -6,21 +9,21 @@
             </div>
     
             <ul class="list-unstyled components">
-                <p>Mis Tareas</p>
+                <h4>Mis Tareas</h4>
                 <li>
-                    <a [routerLink]="['/user-view']">Tareas Comenzadas</a>
+                    <a (click)="scrollTo('started')">Tareas Comenzadas</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/user-view']">Tareas Pendientes</a>
+                    <a (click)="scrollTo('unstarted')">Tareas Pendientes</a>  
                 </li>
                 <li>
-                    <a [routerLink]="['/user-view']">Mi Calendario</a>
+                    <a (click)="scrollTo('top')">Mi Calendario</a>
                 </li>
             </ul>
         </nav>
     </div>
     <div class="col-md-10">
-        <div class="titulo-comenzadas">TAREAS COMENZADAS</div>
+        <div class="titulo-comenzadas" >TAREAS COMENZADAS</div>
         <div class="contenedor-comenzada opacity">
             <!-- Este div será sobre el que se itere cuando tengamos las tareas-->
             <div *ngFor="let task of tasks">
@@ -35,7 +38,7 @@
             </div>
         </div>
     
-        <div class="titulo-pendientes">TAREAS PENDIENTES</div>
+        <div class="titulo-pendientes" id="unstarted">TAREAS PENDIENTES</div>
         <div class="contenedor-pendiente">
             <!-- Este div será sobre el que se itere cuando tengamos las tareas-->
             <div *ngFor="let task of tasks">
