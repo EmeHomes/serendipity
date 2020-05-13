@@ -14,7 +14,7 @@ public class User {
     private int id; // Único e incremental
 
     private int role; // Foreign Key de Roles
-    private String userName; // Único
+    private String username; // Único
     private String password; // Cifrado
 
     @NotNull
@@ -40,12 +40,12 @@ public class User {
         this.role = role;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -95,4 +95,6 @@ public class User {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+
 }
