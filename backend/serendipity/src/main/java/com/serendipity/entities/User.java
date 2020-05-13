@@ -1,28 +1,28 @@
-package com.serendipity.user;
+package com.serendipity.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; // Único e incremental
+
     private int role; // Foreign Key de Roles
     private String userName; // Único
     private String password; // Cifrado
+
+    @NotNull
     private String name;
     private String surname1;
     private String surname2;
     private String image;
     private String mail; // Único
-
-    public User(int id, int role, String userName, String password, String name, String surname1, String surname2, String image, String mail) {
-        this.id = id;
-        this.role = role;
-        this.userName = userName;
-        this.password = password;
-        this.name = name;
-        this.surname1 = surname1;
-        this.surname2 = surname2;
-        this.image = image;
-        this.mail = mail;
-    }
 
     public int getId() {
         return id;
@@ -94,20 +94,5 @@ public class User {
 
     public void setMail(String mail) {
         this.mail = mail;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", role=" + role +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname1='" + surname1 + '\'' +
-                ", surname2='" + surname2 + '\'' +
-                ", image='" + image + '\'' +
-                ", mail='" + mail + '\'' +
-                '}';
     }
 }

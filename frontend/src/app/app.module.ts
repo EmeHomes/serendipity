@@ -15,7 +15,7 @@ import { ProfilePageComponent } from './pages/app/profile-page/profile-page.comp
 import { UsPageComponent } from './pages/web/us-page/us-page.component';
 import { ClientPageComponent } from './pages/web/client-page/client-page.component';
 import { ContactPageComponent } from './pages/web/contact-page/contact-page.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppPageComponent } from './pages/app/app-page/app-page.component';
 import { FormsModule } from '@angular/forms';
 
