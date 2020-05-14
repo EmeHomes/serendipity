@@ -9,8 +9,9 @@ export class LoginService {
   private loginURL = 'http://localhost:8080/login';
 
   constructor(private http: HttpClient) { }
-
+/*
     login(userName, password): Observable<any> {
         return this.http.get(`${this.loginURL}/${userName}/${password}`);
     }
+    */
 }

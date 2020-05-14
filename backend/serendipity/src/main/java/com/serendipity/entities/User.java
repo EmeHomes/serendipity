@@ -16,8 +16,6 @@ public class User {
     private int role; // Foreign Key de Roles
     private String username; // Único
     private String password; // Cifrado
-
-    @NotNull
     private String name;
     private String surname1;
     private String surname2;

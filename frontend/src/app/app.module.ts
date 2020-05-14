@@ -18,6 +18,8 @@ import { ContactPageComponent } from './pages/web/contact-page/contact-page.comp
 import { HttpClientModule } from '@angular/common/http';
 import { AppPageComponent } from './pages/app/app-page/app-page.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserDeployComponent } from './pages/app/user-deploy/user-deploy.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +36,15 @@ import { FormsModule } from '@angular/forms';
     UsPageComponent,
     ClientPageComponent,
     ContactPageComponent,
-    AppPageComponent
+    AppPageComponent,
+    UserDeployComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+/*
   loginCheck() {
     this.loginService.login(this.userName, this.password).subscribe(res => {
       if (res && res.token) {
@@ -34,5 +34,5 @@ export class LoginComponent implements OnInit {
       alert('Datos incorrectos');
     });
   }
-
+*/
 }

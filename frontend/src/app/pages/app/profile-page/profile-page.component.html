@@ -1,51 +1,57 @@
 <app-header-app></app-header-app>
 <div class="profile mx-auto">
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-        <div class="row backTop">
-            <div class="col-md-2 offset-md-5">
-                <img class= "image" src="../../../../assets/images/user-icon.png" alt="icon user">
-                <div class="company">
-                    <h4>Umbrella Corp.</h4>
-                </div>
-                <div class="">
-                    <h5></h5>
-                </div>
-            </div>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="row backTop">
+      <div class="col-md-2 offset-md-5">
+        <img class="image" src="../../../../assets/images/avatar/user1.png" alt="icon user">
+        <div class="company">
+          <h4>Umbrella Corp.</h4>
         </div>
-        <div class="backDown descriptions">
-            <form>
-              <div *ngFor="let users of profile">
-                  <div class="form-row">
-                      <div class="form-group col-md-4">
-                          <label for="name">Nombre</label>
-                          <input type="text" class="form-control" id="name" placeholder="{{ users.name }}">
-                      </div>
-                      <div class="form-group col-md-8">
-                          <label for="surname">Apellidos</label>
-                          <input type="text" class="form-control" id="surname" placeholder="{{ users.surname1}}{{ users.surname2}}">
-                      </div>
-                  </div>
-                  <div class="form-row">
-                      <div class="form-group col-md-4">
-                          <label for="inputEmail4">Email</label>
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="{{ users.mail }}">
-                      </div>
-                      <div class="form-group col-md-4">
-                          <label for="username">Nombre de Usuario</label>
-                          <input type="text" class="form-control" id="username" placeholder="{{ users.userName }}">
-                      </div>
-                      <div class="form-group col-md-4">
-                          <label for="inputPassword4">Contraseña</label>
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña">
-                      </div>
-                  </div>
-                  <div class="offset-md-2 col-md-8 meet">
-                      <div class="row justify-content-center">
-                          <a (click)="save()" class="btn col-md-8">Guardar cambios</a>
-                      </div>
-                  </div>
-              </div>
-            </form>
+        <div class="">
+          <h5></h5>
         </div>
+      </div>
     </div>
+    <div class="backDown descriptions">
+      <form *ngIf="profile" [formGroup]="userForm">
+        <div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Nombre</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="{{ profile.name }}">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Apellidos</label>
+              <input type="text" class="form-control" formControlName="surname1"
+                     placeholder="{{ profile.surname1}}">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Apellidos</label>
+              <input type="text" class="form-control" formControlName="surname2"
+                     placeholder="{{ profile.surname2}}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Email</label>
+              <input type="email" class="form-control" formControlName="mail" placeholder="{{ profile.mail }}">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="username">Nombre de Usuario</label>
+              <input type="text" class="form-control" id="username" placeholder="{{ profile.username }}" readonly>
+            </div>
+            <div class="form-group col-md-4">
+              <label>Contraseña</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="offset-md-2 col-md-8 meet">
+            <div class="row justify-content-center">
+              <a (click)="save()" class="btn col-md-8">Guardar cambios</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

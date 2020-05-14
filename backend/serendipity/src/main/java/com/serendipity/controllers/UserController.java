@@ -29,11 +29,31 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/users")
-    public @ResponseBody String addUser (@RequestParam String name, @RequestParam String mail) {
+    public @ResponseBody String addUser (@RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam int role,  @RequestParam String username, @RequestParam String mail, @RequestParam String password) {
         User n = new User();
         n.setName(name);
+        n.setSurname1(surname1);
+        n.setSurname2(surname2);
+        n.setRole(role);
+        n.setUsername(username);
         n.setMail(mail);
+        n.setPassword(password);
         userRepository.save(n);
+        return "Saved";
+    }
+
+    @CrossOrigin(origins = "http://localhost:8080")
+    @PostMapping(path = "/user/{id}")
+    public @ResponseBody String updateUser (@PathVariable int id, @RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam String mail, @RequestParam String password) {
+        Optional<User> n = this.userRepository.findById(id);
+        n.ifPresent(found -> {
+            found.setName(name);
+            found.setSurname1(surname1);
+            found.setSurname2(surname2);
+            found.setMail(mail);
+            found.setPassword(password);
+            userRepository.save(found);
+        });
         return "Saved";
     }
 }

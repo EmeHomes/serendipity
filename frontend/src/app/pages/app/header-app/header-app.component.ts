@@ -15,18 +15,16 @@ export class HeaderAppComponent implements OnInit {
   }
 
   logout() {
-    this.sessionService.token = "";
     this.router.navigate(['login']);
   }
 
-  scrollTo(elementId: string): void { 
-
+  scrollTo(elementId: string): void {
     if ('top' === elementId ) {
-      top.scrollTo(0,0);
+      top.scrollTo(0, 0);
     }
 
     const element = document.getElementById(elementId);
-    element.scrollIntoView({behavior: "smooth"})
+    element.scrollIntoView({behavior: 'smooth'});
 }
 
 }

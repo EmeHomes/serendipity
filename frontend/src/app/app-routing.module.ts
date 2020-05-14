@@ -7,9 +7,10 @@ import { UsPageComponent } from './pages/web/us-page/us-page.component';
 import { ClientPageComponent } from './pages/web/client-page/client-page.component';
 import { AppPageComponent } from './pages/app/app-page/app-page.component';
 import { ProfilePageComponent } from './pages/app/profile-page/profile-page.component';
+import {UserDeployComponent} from './pages/app/user-deploy/user-deploy.component';
 
 const routes: Routes = [
-  
+
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginComponent },
@@ -18,8 +19,9 @@ const routes: Routes = [
   { path: 'us', component: UsPageComponent},
   { path: 'IClient', component: ClientPageComponent},
   { path: 'profile-page', component: ProfilePageComponent},
+  { path: 'user-deploy', component: UserDeployComponent},
   { path: '**', component: HomePageComponent},
-  
+
 ];
 
 @NgModule({
