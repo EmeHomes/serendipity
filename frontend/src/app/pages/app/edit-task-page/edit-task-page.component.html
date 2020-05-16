@@ -1,7 +1,7 @@
 <app-header-app></app-header-app>
-<div class="profile mx-auto">
-  <div class="shadow-lg p-3 mb-5 bg-white rounded">
-    <div class="row backTop">
+<div class="backTop user-profile profile mx-auto">
+  <div class="">
+    <div class="row">
       <div class="col-md-2 offset-md-5">
         <img class="image" src="../../../../assets/images/avatar/user1.png" alt="icon user">
         <div class="company">
@@ -16,19 +16,19 @@
       <form *ngIf="task" [formGroup]="taskForm">
         <div>
           <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
               <label>Nombre</label>
               <input type="text" class="form-control" formControlName="name" placeholder="{{ task.name }}">
             </div>
-            <div class="form-group col-md-4">
-              <label>Descripcion</label>
-              <input type="text" class="form-control" formControlName="description"
-                     placeholder="{{ task.description }}">
-            </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
               <label>Estado</label>
               <input type="text" class="form-control" formControlName="status_id"
                      placeholder="{{ task.status_id }}">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Descripcion</label>
+              <textarea rows="4" cols="50" class="form-control" formControlName="description"
+                        placeholder="{{ task.description }}"></textarea>
             </div>
           </div>
           <div class="offset-md-2 col-md-8 meet">

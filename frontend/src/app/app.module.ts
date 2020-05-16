@@ -38,7 +38,7 @@ import { EditTaskPageComponent } from './pages/app/edit-task-page/edit-task-page
     AppPageComponent,
     UserDeployComponent,
     EditUserPageComponent,
-    EditTaskPageComponent
+    EditTaskPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ declare var $;
   styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit {
-
+  tasks: [];
   taskTableData = [];
   userTableData = [];
   @ViewChild('dataTableTasks', {static: true}) taskTable;
@@ -23,6 +23,7 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit(): void {
     this.getTaskTable();
     this.getUserTable();
+    this.taskService.findAll().subscribe(res => this.tasks = res);
   }
 
   getTaskTable() {
@@ -60,9 +61,11 @@ export class AdminPanelComponent implements OnInit {
         data: this.userTableData,
         columns: [
           {title: 'ID', data: 'id'},
-          {title: 'Name', data: 'name'},
-          {title: 'Rol', data: 'role'},
-          {title: 'Username', data: 'username'},
+          {title: 'Nombre de usuario', data: 'username'},
+          {title: 'Nombre', data: 'name'},
+          {title: '1er Apellido', data: 'surname1'},
+          {title: '2do Apellido', data: 'surname2'},
+          {title: 'Email', data: 'mail'},
           {
             title: 'Acción',
             data: null,
