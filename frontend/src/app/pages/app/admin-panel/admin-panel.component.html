@@ -1,54 +1,60 @@
-<div id="sidebar">
-    <div class="titulo-tareas">ADMINISTRACIÓN DE TAREAS</div>
-    <div class="contenedor-tareas">
-        <!-- Este div será sobre el que se itere cuando tengamos las tareas-->
-        
-        <table class="table table-striped">
-            <thead>
-              <tr class="table-first">
-                <th scope="col" class="estado">Estado</th>
-                <th scope="col" class="general">Tarea</th>
-                <th scope="col" class="general">Descripción</th>
-                <th scope="col" class="general">Usuario</th>
-                <th scope="col" class="general">Fecha de asignación</th>
-                <th scope="col" class="general">Fecha límite</th>
-                <th scope="col" class="accion">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table-light">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-active">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
+<app-header-app></app-header-app>
+<div class="row panel">
+    <div class=" col-md-3">
+      <div class="">
+        <h3 class="title mb-5">Panel de Administración</h3>
+      </div>
+      <hr>
+      <button class="btn btn-block ">Añadir tarea</button>
+      <button class="btn btn-block ">Añadir usuario</button>
+      <button class="btn btn-block ">Editar usuarios</button>
+      <button class="btn btn-block mb-2">Ver lista de usuarios</button>
 
-        <div class="row">
-            <div class="offset-md-10 col-md-2"><i class="fas fa-ellipsis-h"></i> Ampliar vista</div>
     </div>
+    <div class="col-md-9 contenedor-tareas">
+      <div class="row mb-3">
+        <div class="col-md-12">Tabla de tareas</div>
+        <table #dataTableTasks id="task-table" class="display" style="width:100%"></table>
+        <button class="d-none" id="taskButton" data-id="" (click)="taskClick($event)">taskId</button>
+      </div>
+      <div class="row">
+        <div class="col-md-12">Tabla de usuarios</div>
+        <table #dataTableUsers id="user-table" class="display" style="width:100%"></table>
+        <button class="d-none" id="userButton" data-id="" (click)="userClick($event)">userId</button>
+      </div>
+
     </div>
 </div>
+
+<!-- <table class="table table-striped">
+  <thead>
+  <tr class="table-first">
+    <th scope="col" class="estado">Estado</th>
+    <th scope="col" class="general">Tarea</th>
+    <th scope="col" class="general">Descripción</th>
+    <th scope="col" class="general">Usuario</th>
+    <th scope="col" class="general">Fecha de asignación</th>
+    <th scope="col" class="general">Fecha límite</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="table-light">
+    <th scope="row"></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="table-active">
+    <th scope="row"></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table> -->
+
 

@@ -5,25 +5,27 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-#sidebar {
-    width: 100%;
-    padding: 1rem;
-    background: #ffffff;
-    color: #3f3f3f;
-    transition: all 0.3s;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 #9ab8b5;
-}
+.panel {
+  -webkit-box-shadow: 20px 10px 43px 0px rgba(80,167,159,0.28);
+  -moz-box-shadow: 20px 10px 43px 0px rgba(80,167,159,0.28);
+  box-shadow: 20px 10px 43px 0px rgba(80,167,159,0.28);
 
+  padding: 1rem;
+}
 .contenedor-tareas {
     padding: 40px;
     background-color: #d5f0ee;
     margin-bottom: 1rem;
     }
 
-.titulo-tareas {
+.title {
     font-weight: bold;
-    color: #94dad3;
+    color: #50a79f;
+}
+
+.subtitle {
+  font-weight: bold;
+  color: #94dad3;
 }
 
 .table-first {
@@ -45,6 +47,11 @@ th, td {
     text-align: center;
 }
 
-.accion {
-    width: 3%;
+.pointer {
+  cursor: pointer;
 }
+
+.task-table_wrapper {
+  width: 100%;
+}
+

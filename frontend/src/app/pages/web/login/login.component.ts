@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  navigateToProfile() {
+    this.router.navigate(['profile-page/' + 1]);
+  }
 /*
   loginCheck() {
     this.loginService.login(this.userName, this.password).subscribe(res => {

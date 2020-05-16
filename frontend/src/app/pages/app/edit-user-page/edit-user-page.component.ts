@@ -1,17 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ProfileService} from '../../../services/profile.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserModel} from '../../../interfaces/user.model';
-
+import { Component, OnInit } from '@angular/core';
+import {UserModel} from "../../../interfaces/user.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ProfileService} from "../../../services/profile.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.css']
+  selector: 'app-edit-user-page',
+  templateUrl: './edit-user-page.component.html',
+  styleUrls: ['./edit-user-page.component.css']
 })
-
-export class ProfilePageComponent implements OnInit {
+export class EditUserPageComponent implements OnInit {
 
   userId;
   profile: UserModel;

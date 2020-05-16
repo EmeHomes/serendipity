@@ -9,7 +9,7 @@
 
       <input type="text" id="username" class="fadeIn first" placeholder="Nombre de usuario">
       <input type="password" id="password" class="fadeIn second" placeholder="Contraseña de usuario">
-      <button type="button"  class="fadeIn third" [routerLink]="['/profile-page']"> Iniciar Sesión</button>
+      <button type="button"  class="fadeIn third" (click)="navigateToProfile()"> Iniciar Sesión</button>
 
   </div>
 </div>

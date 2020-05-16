@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../../../services/session.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {SessionService} from '../../../services/session.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header-app',
@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderAppComponent implements OnInit {
 
-  constructor(private router: Router, private sessionService: SessionService) { }
+  constructor(private router: Router, private sessionService: SessionService) {
+  }
 
   ngOnInit(): void {
   }
@@ -19,12 +20,16 @@ export class HeaderAppComponent implements OnInit {
   }
 
   scrollTo(elementId: string): void {
-    if ('top' === elementId ) {
+    if ('top' === elementId) {
       top.scrollTo(0, 0);
     }
 
     const element = document.getElementById(elementId);
     element.scrollIntoView({behavior: 'smooth'});
-}
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['profile-page/1']);
+  }
 
 }

@@ -1,11 +1,10 @@
 .profile {
     height: 100%;
-    margin-top: 8rem;
 }
 
 .backTop {
-    background: rgb(42,162,153);
-    background: linear-gradient(180deg, rgba(42,162,153,1) 15%, rgba(255,255,255,0.6839110644257703) 87%);
+  background: rgb(55,145,138);
+  background: linear-gradient(180deg, rgba(55,145,138,1) 0%, rgba(255,255,255,0.04525560224089631) 100%);
     align-items: center;
 }
 

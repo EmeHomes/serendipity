@@ -13,6 +13,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; // Único e incremental
 
+
     private int role; // Foreign Key de Roles
     private String username; // Único
     private String password; // Cifrado

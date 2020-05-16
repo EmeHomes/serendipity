@@ -8,6 +8,9 @@ import { ClientPageComponent } from './pages/web/client-page/client-page.compone
 import { AppPageComponent } from './pages/app/app-page/app-page.component';
 import { ProfilePageComponent } from './pages/app/profile-page/profile-page.component';
 import {UserDeployComponent} from './pages/app/user-deploy/user-deploy.component';
+import {EditUserPageComponent} from "./pages/app/edit-user-page/edit-user-page.component";
+import {AdminPanelComponent} from "./pages/app/admin-panel/admin-panel.component";
+import {EditTaskPageComponent} from "./pages/app/edit-task-page/edit-task-page.component";
 
 const routes: Routes = [
 
@@ -16,10 +19,13 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'app-page', component: AppPageComponent},
   { path: 'user-view', component: UserViewComponent },
+  { path: 'admin-panel', component: AdminPanelComponent },
   { path: 'us', component: UsPageComponent},
   { path: 'IClient', component: ClientPageComponent},
-  { path: 'profile-page', component: ProfilePageComponent},
+  { path: 'profile-page/:userId', component: ProfilePageComponent},
   { path: 'user-deploy', component: UserDeployComponent},
+  { path: 'edit-user/:userId', component: EditUserPageComponent},
+  { path: 'edit-task/:taskId', component: EditTaskPageComponent},
   { path: '**', component: HomePageComponent},
 
 ];

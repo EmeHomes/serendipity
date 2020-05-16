@@ -1,3 +1,11 @@
 .distancia {
   margin-top: 12rem;
 }
+
+.shadow-box {
+  -webkit-box-shadow: 20px 10px 43px 0px rgba(80,167,159,0.28);
+  -moz-box-shadow: 20px 10px 43px 0px rgba(80,167,159,0.28);
+  box-shadow: 20px 10px 43px 0px rgba(80,167,159,0.28);
+
+  padding: 5rem;
+}
