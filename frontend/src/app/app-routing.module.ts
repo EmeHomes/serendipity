@@ -11,6 +11,8 @@ import {UserDeployComponent} from './pages/app/user-deploy/user-deploy.component
 import {EditUserPageComponent} from './pages/app/edit-user-page/edit-user-page.component';
 import {AdminPanelComponent} from './pages/app/admin-panel/admin-panel.component';
 import {EditTaskPageComponent} from './pages/app/edit-task-page/edit-task-page.component';
+import {AddTaskComponent} from './pages/app/add-task/add-task.component';
+import {AddUserComponent} from './pages/app/add-user/add-user.component';
 
 const routes: Routes = [
 
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'user-deploy', component: UserDeployComponent},
   { path: 'edit-user/:userId', component: EditUserPageComponent},
   { path: 'edit-task/:taskId', component: EditTaskPageComponent},
+  { path: 'add-task', component: AddTaskComponent},
+  { path: 'add-user', component: AddUserComponent},
   { path: '**', component: HomePageComponent},
 
 ];

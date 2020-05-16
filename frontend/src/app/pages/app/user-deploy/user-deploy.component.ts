@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-user-deploy',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDeployComponent implements OnInit {
 
-  constructor() { }
+  task: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.task  =  this.formBuilder.group({
+      taskName: [''],
+      description: [''],
+      start_date: [''],
+      finish_date: [''],
+      status_id: ['', Validators.required],
+    });
   }
 
 }
