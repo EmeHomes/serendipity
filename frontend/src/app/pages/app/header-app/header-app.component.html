@@ -1,28 +1,30 @@
 <div class="row mb-1">
 
-    <div class="col-md-12" style="padding: 0;">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" (click)="scrollTo('top')" [routerLink]="['/user-view']">
-                <img src="../../../../assets/images/logoapp.png" width="120" class="d-inline-block align-top img-fluid" alt="logoapp">
-              </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link pointer" (click)="scrollTo('top')" [routerLink]="['/user-view']" >Mi portal</a>
-                </li>
-                <li class="nav-item" routerLinkActive="active">
-                  <a class="nav-link pointer" (click)="navigateToProfile()">Mi perfil</a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="logout()">
-                        <i class="fas fa-power-off"></i>
-                    </a>
-                </li>
-            </ul>
-            </div>
-        </nav>
-    </div>
+  <div class="col-md-12" style="padding: 0;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" (click)="scrollTo('top')" [routerLink]="['/user-view']">
+        <img src="../../../../assets/images/logoapp.png" width="120" class="d-inline-block align-top img-fluid"
+             alt="logoapp">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link pointer" (click)="scrollTo('top')" [routerLink]="['/user-view']">Mi portal</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link pointer" (click)="navigateToProfile()">Mi perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">
+              <i class="fas fa-power-off"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </div>
