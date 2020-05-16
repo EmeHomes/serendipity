@@ -21,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserDeployComponent } from './pages/app/user-deploy/user-deploy.component';
 import { EditUserPageComponent } from './pages/app/edit-user-page/edit-user-page.component';
 import { EditTaskPageComponent } from './pages/app/edit-task-page/edit-task-page.component';
+import { AddUserComponent } from './pages/app/add-user/add-user.component';
+import { AddTaskComponent } from './pages/app/add-task/add-task.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,8 @@ import { EditTaskPageComponent } from './pages/app/edit-task-page/edit-task-page
     UserDeployComponent,
     EditUserPageComponent,
     EditTaskPageComponent,
+    AddUserComponent,
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule,
