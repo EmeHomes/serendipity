@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { TaskService } from '../../../services/task.service';
 import { SessionService } from '../../../services/session.service';
 import { Router } from '@angular/router';
+import {TaskModel} from "../../../models/task.model";
 
 @Component({
   selector: 'app-work-box',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class WorkBoxComponent implements OnInit {
 
-  tasks: [];
+  tasks: TaskModel[];
 
   constructor(private taskService: TaskService, private sessionService: SessionService, private router: Router) { }
 

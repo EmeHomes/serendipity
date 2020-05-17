@@ -1,10 +1,11 @@
 package com.serendipity.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.serendipity.entities.Status;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Task {
@@ -13,7 +14,11 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private int status_id;
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status_id", nullable = false)
+    private Status status;
+
     private String name;
     private String description;
     private String start_date;
@@ -28,12 +33,12 @@ public class Task {
         this.id = id;
     }
 
-    public int getStatus_id() {
-        return status_id;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStatus_id(int status_id) {
-        this.status_id = status_id;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public String getName() {

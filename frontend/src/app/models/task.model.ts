@@ -4,6 +4,6 @@ export interface TaskModel {
   description: string;
   start_date: string;
   finish_date: string;
-  status_id: number;
+  status: { id: number, name: string };
   user_id: number;
 }

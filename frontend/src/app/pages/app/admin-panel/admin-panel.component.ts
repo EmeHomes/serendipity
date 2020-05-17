@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {TaskService} from '../../../services/task.service';
 import {ProfileService} from "../../../services/profile.service";
 import {Router} from "@angular/router";
+import {TaskModel} from "../../../models/task.model";
 
 declare var $;
 
@@ -11,7 +12,7 @@ declare var $;
   styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit {
-  tasks: [];
+  tasks: TaskModel[];
   taskTableData = [];
   userTableData = [];
   @ViewChild('dataTableTasks', {static: true}) taskTable;
@@ -35,7 +36,7 @@ export class AdminPanelComponent implements OnInit {
           {title: 'ID', data: 'id'},
           {title: 'Name', data: 'name'},
           {title: 'Description', data: 'description'},
-          {title: 'Estado', data: 'status_id'},
+          {title: 'Estado', data: 'status.id'},
           {
             title: 'Acción',
             data: null,
