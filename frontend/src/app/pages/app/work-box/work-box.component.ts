@@ -31,4 +31,8 @@ export class WorkBoxComponent implements OnInit {
         element.scrollIntoView({behavior: 'smooth'});
     }
 
+    goToTask(taskId: number) {
+      this.router.navigate(['user-deploy/' + taskId]);
+    }
+
 }

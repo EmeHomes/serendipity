@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TaskService} from '../../../services/task.service';
-import {ProfileService} from "../../../services/profile.service";
-import {Router} from "@angular/router";
-import {TaskModel} from "../../../models/task.model";
+import {ProfileService} from '../../../services/profile.service';
+import {Router} from '@angular/router';
+import {TaskModel} from '../../../models/task.model';
 
 declare var $;
 
@@ -93,5 +93,9 @@ export class AdminPanelComponent implements OnInit {
   taskClick(event) {
     const taskId = event.target.getAttribute('data-id');
     this.router.navigate(['edit-task/' + taskId]);
+  }
+
+  goToTask(taskId: number) {
+    this.router.navigate(['admin-deploy/' + taskId]);
   }
 }

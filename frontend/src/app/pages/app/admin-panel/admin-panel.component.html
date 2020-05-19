@@ -12,7 +12,10 @@
   <div class="col-md-9">
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#my-tasks">Mis tareas</a>
+        <a class="nav-link active" data-toggle="tab" href="#started">Comenzadas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#unstarted">Pendientes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#users">Usuarios</a>
@@ -24,39 +27,38 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div id="my-tasks" class="tab-pane active register-form row"><br>
-        <h4 class="register-heading">Mis tareas</h4>
-        <hr>
+      <div id="started" class="tab-pane active register-form row"><br>
         <h5 class="titulo-comenzadas"> Tareas comenzadas </h5>
         <div class="contenedor-comenzada opacity ">
           <div *ngFor="let task of tasks" class="">
-            <div *ngIf="task.status.id == 1" class="form-group row tarea-comenzada">
+            <div *ngIf="task.status.id == 2" class="form-group row tarea-comenzada">
               <div class="task-name col-md-5 ">{{ task.name }}</div>
               <div class="task-description col-md-8 mt-3">{{ task.description }}</div>
-              <div class="task-button col-md-4"><button class="comenzada btn btn-lg btn-block" [routerLink]="['/user-deploy']">IR A TAREA</button></div>
+              <div class="task-button col-md-4"><button class="comenzada btn btn-lg btn-block" (click)="goToTask(task.id)">IR A TAREA</button></div>
             </div>
           </div>
         </div>
-        <br><hr>
+      </div>
+      <div id="unstarted" class="tab-pane fade register-form row"><br>
         <h5 class="titulo-pendientes"> Tareas pendientes </h5>
         <div class="contenedor-pendiente opacity">
           <div *ngFor="let task of tasks" class="">
-            <div *ngIf="task.status.id == 2" class="form-group row tarea-pendiente">
+            <div *ngIf="task.status.id == 1" class="form-group row tarea-pendiente">
               <div class="task-name col-md-5">{{ task.name }}</div>
               <div class="task-description col-md-8 mt-3">{{ task.description }}</div>
-              <div class="task-button col-md-4"><button class="pendiente btn btn-lg btn-block" [routerLink]="['/user-deploy']">IR A TAREA</button></div>
+              <div class="task-button col-md-4"><button class="pendiente btn btn-lg btn-block" (click)="goToTask(task.id)">IR A TAREA</button></div>
             </div>
           </div>
         </div>
       </div>
       <div id="tasks" class="tab-pane fade register-form row"><br>
-        <h4 class="register-heading">Tabla de tareas</h4>
+        <h5 class="titulo-pendientes"> Tabla de tareas </h5>
         <hr>
         <table #dataTableTasks id="task-table" class="display" style="width:100%"></table>
         <button class="d-none" id="taskButton" data-id="" (click)="taskClick($event)">taskId</button>
       </div>
       <div id="users" class="tab-pane fade register-form row"><br>
-        <h4 class="register-heading">Tabla de usuarios</h4>
+        <h5 class="titulo-pendientes"> Tabla de usuarios </h5>
         <hr>
         <table #dataTableUsers id="user-table" class="display" style="width:100%"></table>
         <button class="d-none" id="userButton" data-id="" (click)="userClick($event)">userId</button>

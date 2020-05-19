@@ -13,6 +13,7 @@ import {AdminPanelComponent} from './pages/app/admin-panel/admin-panel.component
 import {EditTaskPageComponent} from './pages/app/edit-task-page/edit-task-page.component';
 import {AddTaskComponent} from './pages/app/add-task/add-task.component';
 import {AddUserComponent} from './pages/app/add-user/add-user.component';
+import {AdminDeployComponent} from './pages/app/admin-deploy/admin-deploy.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'us', component: UsPageComponent},
   { path: 'IClient', component: ClientPageComponent},
   { path: 'profile-page/:userId', component: ProfilePageComponent},
-  { path: 'user-deploy', component: UserDeployComponent},
+  { path: 'user-deploy/:taskId', component: UserDeployComponent},
+  { path: 'admin-deploy/:taskId', component: AdminDeployComponent},
   { path: 'edit-user/:userId', component: EditUserPageComponent},
   { path: 'edit-task/:taskId', component: EditTaskPageComponent},
   { path: 'add-task', component: AddTaskComponent},

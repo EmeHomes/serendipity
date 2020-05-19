@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {StatusModel} from '../../../models/status.model';
-import {StatusService} from '../../../services/status.service';
+import {TaskModel} from '../../../models/task.model';
 import {TaskService} from '../../../services/task.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {TaskModel} from '../../../models/task.model';
+import {StatusService} from '../../../services/status.service';
 
 @Component({
-  selector: 'app-user-deploy',
-  templateUrl: './user-deploy.component.html',
-  styleUrls: ['./user-deploy.component.css']
+  selector: 'app-admin-deploy',
+  templateUrl: './admin-deploy.component.html',
+  styleUrls: ['./admin-deploy.component.css']
 })
-export class UserDeployComponent implements OnInit {
+export class AdminDeployComponent implements OnInit {
 
   taskForm: FormGroup;
   status: StatusModel[];
@@ -56,7 +56,6 @@ export class UserDeployComponent implements OnInit {
 
   save() {
     this.taskService.save(this.taskForm, this.task.id).subscribe();
-    this.router.navigate(['user-view']);
+    this.router.navigate(['admin-panel']);
   }
-
 }

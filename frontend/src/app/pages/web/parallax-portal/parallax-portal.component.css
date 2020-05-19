@@ -1,0 +1,13 @@
+body, html {
+  width: 100%;
+}
+
+.parallax {
+  background-image: url("../.././../../assets/images/portada.jpg");
+  height: 46rem;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

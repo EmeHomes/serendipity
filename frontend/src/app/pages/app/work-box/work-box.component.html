@@ -15,11 +15,11 @@
         <h3 class="register-heading titulo-comenzadas">Comprobar mis tareas comenzadas</h3>
         <div class="mt-5 register-form">
           <div class="contenedor-comenzada opacity ">
-            <div *ngFor="let task of tasks" class="">
-              <div *ngIf="task.status.id == 1" class="form-group row tarea-comenzada">
+            <div *ngFor="let task of tasks">
+              <div *ngIf="task.status.id == 2" class="form-group row tarea-comenzada">
                 <div class="task-name col-md-5 ">{{ task.name }}</div>
                 <div class="task-description col-md-8 mt-3">{{ task.description }}</div>
-                <div class="task-button col-md-4"><button class="comenzada btn btn-lg btn-block" [routerLink]="['/user-deploy']">IR A TAREA</button></div>
+                <div class="task-button col-md-4"><button class="comenzada btn btn-lg btn-block" (click)="goToTask(task.id)">IR A TAREA</button></div>
               </div>
             </div>
           </div>
@@ -30,10 +30,10 @@
         <div class="mt-5 register-form">
           <div class="contenedor-pendiente opacity">
             <div *ngFor="let task of tasks" class="">
-              <div *ngIf="task.status.id == 2" class="form-group row tarea-pendiente">
+              <div *ngIf="task.status.id == 1" class="form-group row tarea-pendiente">
                 <div class="task-name col-md-5">{{ task.name }}</div>
                 <div class="task-description col-md-8 mt-3">{{ task.description }}</div>
-                <div class="task-button col-md-4"><button class="pendiente btn btn-lg btn-block" [routerLink]="['/user-deploy']">IR A TAREA</button></div>
+                <div class="task-button col-md-4"><button class="pendiente btn btn-lg btn-block" (click)="goToTask(task.id)">IR A TAREA</button></div>
               </div>
             </div>
           </div>

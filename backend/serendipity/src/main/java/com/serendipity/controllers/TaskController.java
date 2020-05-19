@@ -45,8 +45,7 @@ public class TaskController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/task")
-    public @ResponseBody
-    String addTasks(@RequestParam int user_id, String name, String description, String start_date, String finish_date, int status_id) {
+    public String addTasks(@RequestParam int user_id, String name, String description, String start_date, String finish_date, int status_id) {
         Optional<Status> getStatusById = statusRepository.findById(status_id);
         if (!getStatusById.isPresent()) {
             return "El estado con el id " + status_id + " no existe";
