@@ -34,4 +34,7 @@ export class ProfileService {
 
     return this.http.post<any>(`${this.updateUserAPI}/${id}`, formData);
   }
+  deleteUser(id: number): Observable<any>{
+    return this.http.delete(`${this.updateUserAPI}/${id}`);
+  }
 }

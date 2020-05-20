@@ -71,23 +71,42 @@ export class AdminPanelComponent implements OnInit {
             title: 'Acción',
             data: null,
             orderable: true,
-            render: () => `<button id="edit-action">Editar</button>`
+            render: () => `<div class="row"><div class="col-md-6"><button id="edit-action" class="btn btn-info btn-block">Editar <i class="fas fa-edit"></i></button></div>
+                           <div class="col-md-6"><button id="delete-action" class="btn btn-danger btn-block">Borrar <i class="fas fa-trash"></i></button></div></div>`
           }
         ],
       });
-      $('.dataTables_wrapper').css('width', '100%');
-      $('#user-table tbody').off( 'click', '#edit-action').on( 'click', '#edit-action', function() {
-        const id = table.row($(this).parent()).data().id;
-        const button = $('#userButton');
+      const userTable = $('#user-table tbody');
+      userTable.off( 'click', '#edit-action').on( 'click', '#edit-action', function() {
+        const id = table.row($(this).parent().parent().parent()).data().id;
+        const button = $('#editUser');
         button.attr('data-id', id);
         button.click();
       });
+      userTable.off( 'click', '#delete-action').on( 'click', '#delete-action', function() {
+        const id = table.row($(this).parent().parent().parent()).data().id;
+        const button = $('#deleteUser');
+        button.attr('data-id', id);
+        button.click();
+      });
+      $('.dataTables_wrapper').css('width', '100%');
     });
   }
 
-  userClick(event) {
+  editUser(event) {
     const userId = event.target.getAttribute('data-id');
     this.router.navigate(['edit-user/' + userId]);
+  }
+
+  deleteUser(event) {
+    const userId = event.target.getAttribute('data-id');
+
+    const isDelete = confirm('Estás seguro de que quieres borrar ese usuario');
+    if (isDelete) {
+      this.profileService.deleteUser(userId).subscribe(res => {
+        location.reload();
+      });
+    }
   }
 
   taskClick(event) {

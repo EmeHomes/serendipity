@@ -4,7 +4,7 @@
     <div class="row">
       <h4 class="title mt-2 mb-5">Panel de Administración</h4>
       <hr>
-      <button class="meet btn btn-block mt-5" [routerLink]="['/add-task']">Añadir tarea</button>
+      <button class="meet btn btn-block mt-5" [routerLink]="['/add-task']">Añadir tareas</button>
       <button class="meet btn btn-block " [routerLink]="['/add-user']" >Añadir usuarios</button>
     </div>
   </div>
@@ -61,7 +61,8 @@
         <h5 class="titulo-pendientes"> Tabla de usuarios </h5>
         <hr>
         <table #dataTableUsers id="user-table" class="display" style="width:100%"></table>
-        <button class="d-none" id="userButton" data-id="" (click)="userClick($event)">userId</button>
+        <button class="d-none" id="editUser" data-id="" (click)="editUser($event)">userId</button>
+        <button class="d-none" id="deleteUser" data-id="" (click)="deleteUser($event)">userId</button>
       </div>
     </div>
   </div>

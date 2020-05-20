@@ -44,8 +44,6 @@ export class EditUserPageComponent implements OnInit {
   }
 
   save() {
-    console.log(this.userForm.value);
-
     this.profileService.save(this.userForm, this.profile.id).subscribe(profile => console.log(profile));
   }
 

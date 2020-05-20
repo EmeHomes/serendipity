@@ -6,10 +6,11 @@ import com.serendipity.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Iterator;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.DELETE})
 public class UserController {
 
     @Autowired
@@ -57,6 +58,20 @@ public class UserController {
             userRepository.save(found);
         });
         return "Usuario editado";
+    }
+
+    @CrossOrigin(origins = "http://localhost:8080")
+    @DeleteMapping(path = "/user/{id}")
+    public int deleteById (@PathVariable int id) {
+        Optional<User> n = this.userRepository.findById(id);
+        n.ifPresent(found -> {
+            userRepository.delete(found);
+        });
+        if (n.isPresent()) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
 
