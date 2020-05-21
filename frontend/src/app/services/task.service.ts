@@ -28,5 +28,8 @@ export class TaskService {
 
     return this.http.post<any>(`${this.URL}/${id}`, formData);
   }
+  deleteTask(id: number): Observable<any> {
+    return this.http.delete(`${this.URL}/${id}`);
+  }
 
 }

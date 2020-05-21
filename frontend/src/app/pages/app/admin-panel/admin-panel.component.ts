@@ -41,14 +41,22 @@ export class AdminPanelComponent implements OnInit {
             title: 'Acción',
             data: null,
             orderable: true,
-            render: () => `<button id="edit-action">Editar</button>`
+            render: () =>  `<div class="row" style="max-width: 150px"><div class="col-md-12"><button id="edit-action" class="btn btn-info btn-block">Editar <i class="fas fa-edit"></i></button></div>
+                           <div class="col-md-12"><button id="delete-action" class="btn btn-danger btn-block">Borrar <i class="fas fa-trash"></i></button></div></div>`
           }
         ],
       });
+      const taskTable = $('#task-table tbody');
       $('.dataTables_wrapper').css('width', '100%');
-      $('#task-table tbody').off( 'click', '#edit-action').on( 'click', '#edit-action', function() {
-        const id = table.row($(this).parent()).data().id;
-        const button = $('#taskButton');
+      taskTable.off( 'click', '#edit-action').on( 'click', '#edit-action', function() {
+        const id = table.row($(this).parent().parent().parent()).data().id;
+        const button = $('#editTask');
+        button.attr('data-id', id);
+        button.click();
+      });
+      taskTable.off( 'click', '#delete-action').on( 'click', '#delete-action', function() {
+        const id = table.row($(this).parent().parent().parent()).data().id;
+        const button = $('#deleteTask');
         button.attr('data-id', id);
         button.click();
       });
@@ -71,8 +79,8 @@ export class AdminPanelComponent implements OnInit {
             title: 'Acción',
             data: null,
             orderable: true,
-            render: () => `<div class="row"><div class="col-md-6"><button id="edit-action" class="btn btn-info btn-block">Editar <i class="fas fa-edit"></i></button></div>
-                           <div class="col-md-6"><button id="delete-action" class="btn btn-danger btn-block">Borrar <i class="fas fa-trash"></i></button></div></div>`
+            render: () => `<div class="row" style="max-width: 150px"><div class="col-md-12"><button id="edit-action" class="btn btn-info btn-block">Editar <i class="fas fa-edit"></i></button></div>
+                           <div class="col-md-12"><button id="delete-action" class="btn btn-danger btn-block">Borrar <i class="fas fa-trash"></i></button></div></div>`
           }
         ],
       });
@@ -109,9 +117,18 @@ export class AdminPanelComponent implements OnInit {
     }
   }
 
-  taskClick(event) {
+  editTask(event) {
     const taskId = event.target.getAttribute('data-id');
     this.router.navigate(['edit-task/' + taskId]);
+  }
+  deleteTask(event) {
+    const taskId = event.target.getAttribute('data-id');
+    const isDelete = confirm('¿Estás seguro que quieres borrar esta tarea?');
+    if (isDelete) {
+      this.taskService.deleteTask(taskId).subscribe(res => {
+        location.reload();
+      });
+    }
   }
 
   goToTask(taskId: number) {

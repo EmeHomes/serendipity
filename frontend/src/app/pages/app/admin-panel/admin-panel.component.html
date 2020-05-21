@@ -55,7 +55,8 @@
         <h5 class="titulo-pendientes"> Tabla de tareas </h5>
         <hr>
         <table #dataTableTasks id="task-table" class="display" style="width:100%"></table>
-        <button class="d-none" id="taskButton" data-id="" (click)="taskClick($event)">taskId</button>
+        <button class="d-none" id="editTask" data-id="" (click)="editTask($event)">taskId</button>
+        <button class="d-none" id="deleteTask" data-id="" (click)="deleteTask($event)">taskId</button>
       </div>
       <div id="users" class="tab-pane fade register-form row"><br>
         <h5 class="titulo-pendientes"> Tabla de usuarios </h5>
