@@ -1,11 +1,7 @@
 package com.serendipity.entities;
 
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.serendipity.entities.Status;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Task {
@@ -13,17 +9,16 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "status_id", nullable = false)
-    private Status status;
-
     private String name;
     private String description;
     private String start_date;
     private String finish_date;
     private int user_id;
+
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status_id", nullable = false)
+    private Status status;
 
     public int getId() {
         return id;

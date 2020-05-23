@@ -1,10 +1,7 @@
 package com.serendipity.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -12,9 +9,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; // Único e incremental
-
-
-    private int role; // Foreign Key de Roles
     private String username; // Único
     private String password; // Cifrado
     private String name;
@@ -22,6 +16,11 @@ public class User {
     private String surname2;
     private String image;
     private String mail; // Único
+
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 
     public int getId() {
         return id;
@@ -31,11 +30,11 @@ public class User {
         this.id = id;
     }
 
-    public int getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

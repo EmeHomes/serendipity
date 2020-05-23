@@ -1,12 +1,11 @@
 package com.serendipity.controllers;
 
-
+import com.serendipity.entities.Role;
 import com.serendipity.entities.User;
 import com.serendipity.repositories.UserRepository;
+import com.serendipity.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Iterator;
 import java.util.Optional;
 
 @RestController
@@ -15,6 +14,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(path = "/users")
@@ -30,7 +32,12 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/users")
-    public @ResponseBody String addUser (@RequestParam String image, String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam int role,  @RequestParam String username, @RequestParam String mail, @RequestParam String password) {
+    public @ResponseBody String addUser (@RequestParam String image, String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam int role_id,  @RequestParam String username, @RequestParam String mail, @RequestParam String password) {
+        Optional<Role> getRoleById = roleRepository.findById(role_id);
+        if (!getRoleById.isPresent()) {
+            return "El usuario con " + role_id + " no existe";
+        }
+        Role role = getRoleById.get();
         User n = new User();
         n.setImage(image);
         n.setName(name);
@@ -46,10 +53,16 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/user/{id}")
-    public @ResponseBody String updateUser (@PathVariable int id, @PathVariable String image, @RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam String mail, @RequestParam String password) {
+    public @ResponseBody String updateUser (@PathVariable int id, @RequestParam String image , @RequestParam int role_id, @RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam String mail, @RequestParam String password) {
+        Optional<Role> getRoleById = roleRepository.findById(role_id);
+        if (!getRoleById.isPresent()) {
+            return "El rol con el id " + getRoleById + " no existe";
+        }
+        Role role = getRoleById.get();
         Optional<User> n = this.userRepository.findById(id);
         n.ifPresent(found -> {
             found.setImage(image);
+            found.setRole(role);
             found.setName(name);
             found.setSurname1(surname1);
             found.setSurname2(surname2);

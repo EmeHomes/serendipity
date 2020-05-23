@@ -1,6 +1,5 @@
 package com.serendipity.controllers;
 
-
 import com.serendipity.entities.Status;
 import com.serendipity.entities.Task;
 import com.serendipity.repositories.StatusRepository;
@@ -8,7 +7,6 @@ import com.serendipity.repositories.TaskRepository;
 import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
@@ -42,7 +40,6 @@ public class TaskController {
         return this.taskRepository.findAllByUserId(user_id);
     }
 
-
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/task")
     public String addTasks(@RequestParam int user_id, String name, String description, String start_date, String finish_date, int status_id) {
@@ -60,7 +57,6 @@ public class TaskController {
         n.setFinish_date(finish_date);
         this.taskRepository.save(n);
         return "Tarea editada";
-
     }
 
     @CrossOrigin(origins = "http://localhost:8080")

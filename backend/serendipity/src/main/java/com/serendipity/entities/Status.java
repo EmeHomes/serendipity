@@ -1,12 +1,8 @@
 package com.serendipity.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.serendipity.entities.Task;
-import org.springframework.context.annotation.Primary;
-
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
