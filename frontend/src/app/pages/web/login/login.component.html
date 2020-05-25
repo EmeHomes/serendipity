@@ -7,9 +7,9 @@
   <div id="formContent">
     <!-- Login Form -->
 
-      <input type="text" id="username" class="fadeIn first" placeholder="Nombre de usuario">
-      <input type="password" id="password" class="fadeIn second" placeholder="Contraseña de usuario">
-      <button type="button"  class="fadeIn third" [routerLink]="['/user-view']"> Iniciar Sesión</button>
+    <input type="text" id="userName" [(ngModel)]="username" class="fadeIn first" placeholder="Nombre de usuario">
+    <input type="password" id="password" [(ngModel)]="password" class="fadeIn second" placeholder="Contraseña de usuario">
+    <button type="button" (click)="loginCheck()"  class="fadeIn third"> Iniciar Sesión</button>
 
   </div>
 </div>

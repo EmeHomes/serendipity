@@ -33,6 +33,8 @@ export class ProfilePageComponent implements OnInit {
       surname2: ['', Validators.required],
       mail: ['', Validators.required],
       password: [''],
+      image: [''],
+      role_id: [''],
     });
 
     this.profileService.find(this.userId).subscribe(res => {
@@ -42,6 +44,8 @@ export class ProfilePageComponent implements OnInit {
       this.userForm.get('surname2').patchValue(res.surname2);
       this.userForm.get('mail').patchValue(res.mail);
       this.userForm.get('password').patchValue(res.password);
+      this.userForm.get('image').patchValue(res.image);
+      this.userForm.get('role_id').patchValue(res.role.id);
     });
   }
 

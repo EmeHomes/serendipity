@@ -20,6 +20,10 @@ export class TaskService {
       return this.http.get(`${this.URL}/${id}`);
     }
 
+    findByUser(idUser): Observable<any> {
+      return this.http.get(`${this.URL}/user/${idUser}`);
+    }
+
   save(taskForm: FormGroup, id: number): Observable<any> {
     const formData = new FormData();
     formData.append('name', taskForm.get('name').value);

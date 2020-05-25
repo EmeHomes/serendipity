@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { TaskService } from '../../../services/task.service';
 import { SessionService } from '../../../services/session.service';
 import { Router } from '@angular/router';
-import {TaskModel} from "../../../models/task.model";
+import {TaskModel} from '../../../models/task.model';
 
 @Component({
   selector: 'app-work-box',
@@ -16,10 +16,7 @@ export class WorkBoxComponent implements OnInit {
   constructor(private taskService: TaskService, private sessionService: SessionService, private router: Router) { }
 
   ngOnInit(): void {
-      /*if (!this.sessionService) {
-        this.router.navigate(['login']);
-      }*/
-      this.taskService.findAll().subscribe(res => this.tasks = res);
+      this.taskService.findByUser(this.sessionService.user.id).subscribe(res => this.tasks = res);
     }
       scrollTo(elementId: string): void {
 

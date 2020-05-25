@@ -9,9 +9,11 @@ export class LoginService {
   private loginURL = 'http://localhost:8080/login';
 
   constructor(private http: HttpClient) { }
-/*
-    login(userName, password): Observable<any> {
-        return this.http.get(`${this.loginURL}/${userName}/${password}`);
+    login(username, password): Observable<any> {
+      const formData = new FormData();
+      formData.append('username', username);
+      formData.append('password', password);
+
+      return this.http.post(`${this.loginURL}`, formData);
     }
-    */
 }

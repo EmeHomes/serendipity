@@ -112,7 +112,7 @@ export class AdminPanelComponent implements OnInit {
     const isDelete = confirm('Estás seguro de que quieres borrar ese usuario');
     if (isDelete) {
       this.profileService.deleteUser(userId).subscribe(res => {
-        location.reload();
+        this.redirectTo('/admin-panel');
       });
     }
   }
@@ -126,12 +126,17 @@ export class AdminPanelComponent implements OnInit {
     const isDelete = confirm('¿Estás seguro que quieres borrar esta tarea?');
     if (isDelete) {
       this.taskService.deleteTask(taskId).subscribe(res => {
-        location.reload();
+        this.redirectTo('/admin-panel');
       });
     }
   }
 
   goToTask(taskId: number) {
     this.router.navigate(['admin-deploy/' + taskId]);
+  }
+
+  redirectTo(uri: string){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+      this.router.navigate([uri]));
   }
 }

@@ -2,6 +2,7 @@ package com.serendipity.controllers;
 
 import com.serendipity.entities.Role;
 import com.serendipity.entities.User;
+import com.serendipity.helpers.EncoderHelper;
 import com.serendipity.repositories.UserRepository;
 import com.serendipity.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class UserController {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private EncoderHelper encoderHelper;
 
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(path = "/users")
@@ -46,7 +50,7 @@ public class UserController {
         n.setRole(role);
         n.setUsername(username);
         n.setMail(mail);
-        n.setPassword(password);
+        n.setPassword(this.encoderHelper.encrypt(password));
         userRepository.save(n);
         return "Usuario añadido";
     }
@@ -67,7 +71,7 @@ public class UserController {
             found.setSurname1(surname1);
             found.setSurname2(surname2);
             found.setMail(mail);
-            found.setPassword(password);
+            found.setPassword(this.encoderHelper.encrypt(password));
             userRepository.save(found);
         });
         return "Usuario editado";

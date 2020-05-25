@@ -30,7 +30,9 @@ export class ProfileService {
     formData.append('surname1', userForm.get('surname1').value);
     formData.append('surname2', userForm.get('surname2').value);
     formData.append('mail', userForm.get('mail').value);
+    formData.append('image', userForm.get('image').value);
     formData.append('password', userForm.get('password').value);
+    formData.append('role_id', userForm.get('role_id').value);
 
     return this.http.post<any>(`${this.updateUserAPI}/${id}`, formData);
   }

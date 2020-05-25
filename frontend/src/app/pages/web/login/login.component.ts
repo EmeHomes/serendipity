@@ -10,7 +10,7 @@ import { SessionService } from '../../../services/session.service';
 })
 export class LoginComponent implements OnInit {
 
-  userName: string;
+  username: string;
   password: string;
 
   constructor(
@@ -21,22 +21,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToProfile() {
-    this.router.navigate(['profile-page/' + 1]);
-  }
-/*
   loginCheck() {
-    this.loginService.login(this.userName, this.password).subscribe(res => {
-      if (res && res.token) {
-
-        this.sessionService.token = res.token;
-        this.sessionService.id    = res.id;
-
+    this.loginService.login(this.username, this.password).subscribe(user => {
+      if (user) {
+        this.sessionService.user = user;
         this.router.navigate(['user-view']);
         return;
       }
       alert('Datos incorrectos');
     });
   }
-*/
 }
