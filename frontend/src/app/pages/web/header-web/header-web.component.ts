@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header-web',
@@ -8,19 +9,28 @@ import { ViewportScroller } from '@angular/common';
 })
 export class HeaderWebComponent implements OnInit {
 
-  constructor() { }
+  show = true;
 
-  ngOnInit(): void {
+  constructor(private router: Router) {
   }
 
-  scrollTo(elementId: string): void { 
+  ngOnInit(): void {
+    this.checkRoute();
+  }
+
+  scrollTo(elementId: string): void {
 
     if ('top' === elementId ) {
-      top.scrollTo(0,0);
+      top.scrollTo(0, 0);
     }
 
     const element = document.getElementById(elementId);
-    element.scrollIntoView({behavior: "smooth"})
+    element.scrollIntoView({behavior: 'smooth'});
 }
+  checkRoute(){
+    if ('/home' !== this.router.url) {
+      this.show = false;
+    }
+  }
 
 }

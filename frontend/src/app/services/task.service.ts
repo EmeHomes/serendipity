@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {TaskModel} from "../models/task.model";
-import {FormGroup} from "@angular/forms";
+import {TaskModel} from '../models/task.model';
+import {FormGroup} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'

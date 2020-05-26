@@ -14,10 +14,10 @@
                 <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link pointer" (click)="scrollTo('top')" [routerLink]="['/home']">Inicio</a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li *ngIf="show" class="nav-item" routerLinkActive="active">
                 <a class="nav-link pointer" (click)="scrollTo('about')">Nosotros</a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li *ngIf="show" class="nav-item" routerLinkActive="active">
                   <a class="nav-link pointer" (click)="scrollTo('contacto')">Contacto</a>
               </li>
                 <li class="nav-item" routerLinkActive="active">
@@ -29,8 +29,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <a class="dropdown-item" [routerLink]="['/login']" >Acceso</a>
-                      <a class="dropdown-item" href="#">Quiero trabajar aquí</a>
-                      <a class="dropdown-item" [routerLink]="['/home']">Quiénes somos</a>
                     </div>
                   </li>
             </ul>

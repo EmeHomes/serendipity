@@ -25,7 +25,7 @@ import { AddUserComponent } from './pages/app/add-user/add-user.component';
 import { AddTaskComponent } from './pages/app/add-task/add-task.component';
 import { ParallaxPortalComponent } from './pages/web/parallax-portal/parallax-portal.component';
 import { AdminDeployComponent } from './pages/app/admin-deploy/admin-deploy.component';
-import {AuthorizatedGuard} from "./services/authorizated-guard.service";
+import {AuthorizatedGuard} from './services/authorizated-guard.service';
 @NgModule({
   declarations: [
     AppComponent,

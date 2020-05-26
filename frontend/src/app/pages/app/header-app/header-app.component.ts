@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SessionService} from '../../../services/session.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ProfileService} from '../../../services/profile.service';
+import {UserModel} from '../../../models/user.model';
 
 @Component({
   selector: 'app-header-app',
@@ -8,11 +10,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./header-app.component.css']
 })
 export class HeaderAppComponent implements OnInit {
+  userId;
+  user: UserModel[];
 
-  constructor(private router: Router, private sessionService: SessionService) {
-  }
+  constructor(
+    private router: Router,
+    private sessionService: SessionService) {}
 
   ngOnInit(): void {
+    this.userId = this.sessionService.user.id;
   }
 
   logout() {
@@ -30,7 +36,7 @@ export class HeaderAppComponent implements OnInit {
   }
 
   navigateToProfile() {
-    this.router.navigate(['profile-page/1']);
+    this.router.navigate(['profile-page/' + this.userId]);
   }
 
 }
