@@ -7,5 +7,5 @@ export interface UserModel {
   surname2: string;
   image: string;
   mail: string;
-  role: number;
+  role: { id: number, role: string };
 }

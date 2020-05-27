@@ -3,6 +3,8 @@ import {UserModel} from '../../../models/user.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProfileService} from '../../../services/profile.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {RoleModel} from "../../../models/role.model";
+import {RoleService} from "../../../services/role.service";
 
 @Component({
   selector: 'app-edit-user-page',
@@ -14,15 +16,20 @@ export class EditUserPageComponent implements OnInit {
   userId;
   profile: UserModel;
   userForm: FormGroup;
+  roles: RoleModel[];
 
   constructor(
     private profileService: ProfileService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private roleService: RoleService) { }
 
 
   ngOnInit(): void {
+
+    this.getRoles();
+
     this.userId = this.route.snapshot.paramMap.get('userId');
 
     this.userForm  =  this.formBuilder.group({
@@ -30,7 +37,9 @@ export class EditUserPageComponent implements OnInit {
       surname1: ['', Validators.required],
       surname2: ['', Validators.required],
       mail: ['', Validators.required],
+      role_id: ['', Validators.required],
       password: [''],
+      image: ['']
     });
 
     this.profileService.find(this.userId).subscribe(res => {
@@ -40,11 +49,16 @@ export class EditUserPageComponent implements OnInit {
       this.userForm.get('surname2').patchValue(res.surname2);
       this.userForm.get('mail').patchValue(res.mail);
       this.userForm.get('password').patchValue(res.password);
+      this.userForm.get('image').patchValue(res.image);
+      this.userForm.get('role_id').patchValue(res.role.id);
     });
   }
 
   save() {
-    this.profileService.save(this.userForm, this.profile.id).subscribe(profile => console.log(profile));
+    this.profileService.save(this.userForm, this.profile.id).subscribe(profile => alert('guardada o no'));
   }
 
+  getRoles() {
+    this.roleService.findAll().subscribe(res => this.roles = res);
+  }
 }

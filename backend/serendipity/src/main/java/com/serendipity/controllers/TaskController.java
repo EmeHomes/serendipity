@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
 public class TaskController {
 
     @Autowired

@@ -18,6 +18,9 @@
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link pointer" (click)="navigateToProfile()">Mi perfil</a>
           </li>
+          <li *ngIf="2 === userRole" class="nav-item" routerLinkActive="active">
+            <a class="nav-link pointer" [routerLink]="['/admin-panel']">Panel de administración</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" (click)="logout()">
               <i class="fas fa-power-off"></i>

@@ -37,7 +37,8 @@ export class UserDeployComponent implements OnInit {
       description: [''],
       start_date: [''],
       finish_date: [''],
-      status_id: ['', Validators.required]
+      status_id: ['', Validators.required],
+      user_id: []
     });
 
     this.taskService.find(this.taskId).subscribe(res => {
@@ -47,6 +48,7 @@ export class UserDeployComponent implements OnInit {
       this.taskForm.get('start_date').patchValue(res.start_date);
       this.taskForm.get('finish_date').patchValue(res.finish_date);
       this.taskForm.get('status_id').patchValue(res.status.id);
+      this.taskForm.get('user_id').patchValue(res.user_id);
     });
   }
 
@@ -56,7 +58,7 @@ export class UserDeployComponent implements OnInit {
 
   save() {
     this.taskService.save(this.taskForm, this.task.id).subscribe();
-    this.router.navigate(['user-view']);
+    alert('Tarea actualizada');
   }
 
 }

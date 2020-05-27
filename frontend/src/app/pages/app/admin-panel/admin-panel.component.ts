@@ -3,6 +3,7 @@ import {TaskService} from '../../../services/task.service';
 import {ProfileService} from '../../../services/profile.service';
 import {Router} from '@angular/router';
 import {TaskModel} from '../../../models/task.model';
+import {SessionService} from "../../../services/session.service";
 
 declare var $;
 
@@ -18,13 +19,17 @@ export class AdminPanelComponent implements OnInit {
   @ViewChild('dataTableTasks', {static: true}) taskTable;
   @ViewChild('dataTableUsers', {static: true}) userTable;
 
-  constructor(private taskService: TaskService, private profileService: ProfileService, private router: Router) {
+  constructor(
+    private taskService: TaskService,
+    private profileService: ProfileService,
+    private router: Router,
+    private sessionService: SessionService) {
   }
 
   ngOnInit(): void {
     this.getTaskTable();
     this.getUserTable();
-    this.taskService.findAll().subscribe(res => this.tasks = res);
+    this.taskService.findByUser(this.sessionService.user.id).subscribe(res => this.tasks = res);
   }
 
   getTaskTable() {
@@ -41,20 +46,20 @@ export class AdminPanelComponent implements OnInit {
             title: 'Acción',
             data: null,
             orderable: true,
-            render: () =>  `<div class="row" style="max-width: 150px"><div class="col-md-12"><button id="edit-action" class="btn btn-info btn-block">Editar <i class="fas fa-edit"></i></button></div>
+            render: () => `<div class="row" style="max-width: 150px"><div class="col-md-12"><button id="edit-action" class="btn btn-info btn-block">Editar <i class="fas fa-edit"></i></button></div>
                            <div class="col-md-12"><button id="delete-action" class="btn btn-danger btn-block">Borrar <i class="fas fa-trash"></i></button></div></div>`
           }
         ],
       });
       const taskTable = $('#task-table tbody');
       $('.dataTables_wrapper').css('width', '100%');
-      taskTable.off( 'click', '#edit-action').on( 'click', '#edit-action', function() {
+      taskTable.off('click', '#edit-action').on('click', '#edit-action', function () {
         const id = table.row($(this).parent().parent().parent()).data().id;
         const button = $('#editTask');
         button.attr('data-id', id);
         button.click();
       });
-      taskTable.off( 'click', '#delete-action').on( 'click', '#delete-action', function() {
+      taskTable.off('click', '#delete-action').on('click', '#delete-action', function () {
         const id = table.row($(this).parent().parent().parent()).data().id;
         const button = $('#deleteTask');
         button.attr('data-id', id);
@@ -85,13 +90,13 @@ export class AdminPanelComponent implements OnInit {
         ],
       });
       const userTable = $('#user-table tbody');
-      userTable.off( 'click', '#edit-action').on( 'click', '#edit-action', function() {
+      userTable.off('click', '#edit-action').on('click', '#edit-action', function () {
         const id = table.row($(this).parent().parent().parent()).data().id;
         const button = $('#editUser');
         button.attr('data-id', id);
         button.click();
       });
-      userTable.off( 'click', '#delete-action').on( 'click', '#delete-action', function() {
+      userTable.off('click', '#delete-action').on('click', '#delete-action', function () {
         const id = table.row($(this).parent().parent().parent()).data().id;
         const button = $('#deleteUser');
         button.attr('data-id', id);
@@ -121,8 +126,10 @@ export class AdminPanelComponent implements OnInit {
     const taskId = event.target.getAttribute('data-id');
     this.router.navigate(['edit-task/' + taskId]);
   }
+
   deleteTask(event) {
     const taskId = event.target.getAttribute('data-id');
+
     const isDelete = confirm('¿Estás seguro que quieres borrar esta tarea?');
     if (isDelete) {
       this.taskService.deleteTask(taskId).subscribe(res => {
@@ -135,7 +142,7 @@ export class AdminPanelComponent implements OnInit {
     this.router.navigate(['admin-deploy/' + taskId]);
   }
 
-  redirectTo(uri: string){
+  redirectTo(uri: string) {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate([uri]));
   }

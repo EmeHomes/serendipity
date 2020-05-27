@@ -11,7 +11,7 @@ import {UserModel} from '../../../models/user.model';
 })
 export class HeaderAppComponent implements OnInit {
   userId;
-  user: UserModel[];
+  userRole;
 
   constructor(
     private router: Router,
@@ -19,6 +19,7 @@ export class HeaderAppComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.sessionService.user.id;
+    this.userRole = this.sessionService.user.role.id;
   }
 
   logout() {
