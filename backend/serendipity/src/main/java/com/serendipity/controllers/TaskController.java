@@ -2,18 +2,21 @@ package com.serendipity.controllers;
 
 import com.serendipity.entities.Status;
 import com.serendipity.entities.Task;
+import com.serendipity.entities.User;
 import com.serendipity.repositories.StatusRepository;
 import com.serendipity.repositories.TaskRepository;
+import com.serendipity.repositories.UserRepository;
 import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class TaskController {
 
     @Autowired
@@ -22,9 +25,13 @@ public class TaskController {
     @Autowired
     private StatusRepository statusRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(path = "/task")
-    public @ResponseBody Iterable<Task> getTask() {
+    public @ResponseBody
+    Iterable<Task> getTask() {
         return this.taskRepository.findAll();
     }
 
@@ -61,19 +68,43 @@ public class TaskController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/task/{id}")
-    public @ResponseBody String updateTask (@PathVariable int id, @RequestParam String name, @RequestParam String description, @RequestParam int status_id) {
+    public @ResponseBody
+    String updateTask(@PathVariable int id, @RequestParam String name, @RequestParam String description, @RequestParam int status_id, @RequestParam String start_date, @RequestParam String finish_date, @RequestParam int user_id) {
         Optional<Status> getStatusById = statusRepository.findById(status_id);
         if (!getStatusById.isPresent()) {
             return "El estado con el id " + status_id + " no existe";
         }
+
+        Optional<User> getUserById = userRepository.findById(user_id);
+        if (!getUserById.isPresent()) {
+            return "El usuario con el id " + user_id + " no existe";
+        }
+
         Optional<Task> n = this.taskRepository.findById(id);
         Status status = getStatusById.get();
         n.ifPresent(found -> {
             found.setName(name);
             found.setDescription(description);
             found.setStatus(status);
+            found.setStart_date(start_date);
+            found.setFinish_date(finish_date);
+            found.setUser_id(user_id);
             taskRepository.save(found);
         });
         return "Tarea guardada";
+    }
+
+    @CrossOrigin(origins = "http://localhost:8080")
+    @DeleteMapping(path = "/task/{id}")
+    public int deleteById (@PathVariable int id) {
+        Optional<Task> n = this.taskRepository.findById(id);
+        n.ifPresent(found -> {
+            taskRepository.delete(found);
+        });
+        if (n.isPresent()) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

@@ -9,6 +9,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; // Único e incremental
+
     private String username; // Único
     private String password; // Cifrado
     private String name;

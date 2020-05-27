@@ -57,13 +57,16 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/user/{id}")
-    public @ResponseBody String updateUser (@PathVariable int id, @RequestParam String image , @RequestParam int role_id, @RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam String mail, @RequestParam String password) {
+    public @ResponseBody String updateUser (@PathVariable int id, @RequestParam String image , @RequestParam int role_id, @RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam String mail) {
         Optional<Role> getRoleById = roleRepository.findById(role_id);
         if (!getRoleById.isPresent()) {
-            return "El rol con el id " + getRoleById + " no existe";
+            return "El rol con el id " + role_id + " no existe";
         }
         Role role = getRoleById.get();
         Optional<User> n = this.userRepository.findById(id);
+        if (!n.isPresent()) {
+            return "El usuario no existe";
+        }
         n.ifPresent(found -> {
             found.setImage(image);
             found.setRole(role);
@@ -71,7 +74,6 @@ public class UserController {
             found.setSurname1(surname1);
             found.setSurname2(surname2);
             found.setMail(mail);
-            found.setPassword(this.encoderHelper.encrypt(password));
             userRepository.save(found);
         });
         return "Usuario editado";
