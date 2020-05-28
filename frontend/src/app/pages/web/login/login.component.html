@@ -3,13 +3,31 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Login Form -->
 
-    <input type="text" id="userName" [(ngModel)]="username" class="fadeIn first" placeholder="Nombre de usuario">
-    <input type="password" id="password" [(ngModel)]="password" class="fadeIn second" placeholder="Contraseña de usuario">
-    <button type="button" (click)="loginCheck()"  class="fadeIn third"> Iniciar Sesión</button>
+<div class="row">
+  <div class="col-lg-4 col-sm-6 mx-auto wrapper fadeInDown">
+    <div id="formContent" class="form-content row">
 
+      <form action="" class="row">
+        <!-- Login Form -->
+        <div class="col-md-12">
+          <img class="client-image" src="../../../../assets/images/client-logo.png" alt="">
+        </div>
+        <div class="col-md-12 mt-1">
+          <input type="text" id="userName" [(ngModel)]="username" class="fadeIn first" placeholder="Nombre de usuario">
+        </div>
+        <br>
+        <div class="col-md-12 mt-1">
+          <input type="password" id="password" [(ngModel)]="password" class="fadeIn second"
+                 placeholder="Contraseña de usuario">
+        </div>
+        <div class="col md-12  mt-1">
+          <button type="buttom" class="button btn btn-info btn-lg btn-block fadeIn third text-uppercase"
+                  (click)="loginCheck()"> Iniciar Sesión
+          </button>
+        </div>
+      </form>
+
+    </div>
   </div>
 </div>

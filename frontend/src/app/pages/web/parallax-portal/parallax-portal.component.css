@@ -4,7 +4,7 @@ body, html {
 
 .parallax {
   background-image: url("../.././../../assets/images/portada.jpg");
-  height: 46rem;
+  height: 47rem;
   width: 100%;
   background-attachment: fixed;
   background-position: center;

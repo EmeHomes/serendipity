@@ -7,23 +7,22 @@
     width: 100%;
 }
 
-.backRow {
-    background: rgb(55,145,138);
+.back-row {
+    background: rgb(55, 145, 138);
     background: linear-gradient(180deg, rgba(55,145,138,1) 15%, rgba(120,199,193,1) 86%);
 }
 
-.backCol {
+.back-col {
     background-color: #fff;
-    
+
 }
 
 .titulo {
-    padding-top: 3rem;
-    color: #3d3a3a;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 5rem;
-    
+  padding-top: 3rem;
+  color: #37918a;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5rem;
 }
 
 .meet .btn {
@@ -31,13 +30,13 @@
     color: #37918a;
     font-size: 20px;
     padding: 15px 27px;
-    border: none;
+    border: 2px solid #37918a;
     cursor: pointer;
     border-radius: 5px;
   }
-  
+
   .meet .btn:hover {
-    background-color: #ffb367;
+    background-color: #ccd993;
   }
 
 .texto {

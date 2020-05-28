@@ -8,7 +8,18 @@
 }
 
 .nav-item :hover {
-    color: #ffb367;
+    color: #ccd993 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  /* color: rgba(0,0,0,.5); */
+  color: whitesmoke;
+  font-size: smaller;
+}
+a.dropdown-item {
+  font-size: smaller;
+  color: darkgray;
+  font-weight: bold;
 }
 
 * {
