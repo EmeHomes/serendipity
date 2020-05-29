@@ -3,13 +3,15 @@
     width: 100% \9;
 }
 
-.pointer {
+.pointer :active {
     cursor: pointer;
+
 }
 
 .nav-item :hover {
     color: #ccd993 !important;
 }
+
 
 .navbar-light .navbar-nav .nav-link {
   /* color: rgba(0,0,0,.5); */

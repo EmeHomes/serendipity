@@ -1,58 +1,61 @@
-<app-header-app></app-header-app>
-<div class="backTop user-profile profile mx-auto">
-  <div class="">
+<div class="container-fluid">
+  <app-header-app></app-header-app>
+  <div class="bg-light user-profile profile mx-auto">
     <div class="">
-      <div class="col-md-2 offset-md-5">
-        <img class="image" src="../../../../assets/images/avatar/user1.png" alt="icon user">
-        <div class="company">
-          <h4>Umbrella Corp.</h4>
-        </div>
-        <div class="">
-          <h5></h5>
+      <div class="">
+        <div class="col-md-2 offset-md-5">
+          <img class="image" src="../../../../assets/images/avatar/user1.png" alt="icon user">
+          <div class="company">
+            <h4>Umbrella Corp.</h4>
+          </div>
+          <div class="">
+            <h5></h5>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="backDown descriptions">
-      <form *ngIf="profile" [formGroup]="userForm">
-        <div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label>Nombre</label>
-              <input type="text" class="form-control" formControlName="name" placeholder="{{ profile.name }}">
+      <div class="backDown descriptions">
+        <form *ngIf="profile" [formGroup]="userForm">
+          <div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label>Nombre</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="{{ profile.name }}">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Apellidos</label>
+                <input type="text" class="form-control" formControlName="surname1" placeholder="{{ profile.surname1}}">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Apellidos</label>
+                <input type="text" class="form-control" formControlName="surname2" placeholder="{{ profile.surname2}}">
+              </div>
             </div>
-            <div class="form-group col-md-4">
-              <label>Apellidos</label>
-              <input type="text" class="form-control" formControlName="surname1" placeholder="{{ profile.surname1}}">
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="mail" placeholder="{{ profile.mail }}">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="username" placeholder="{{ profile.username }}" readonly>
+              </div>
+              <div class="form-group col-md-4">
+                <label>Contraseña</label>
+                <label>Rol del usuario</label>
+                <select class="custom-select" formControlName="role_id">
+                  <option *ngFor="let item of roles" value="{{item.id}}" selected>{{item.role}}</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group col-md-4">
-              <label>Apellidos</label>
-              <input type="text" class="form-control" formControlName="surname2" placeholder="{{ profile.surname2}}">
+            <div class="offset-md-2 col-md-8 meet">
+              <div class="row justify-content-center">
+                <a (click)="save()" class="mb-5 btn col-md-8">Guardar cambios</a>
+              </div>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label>Email</label>
-              <input type="email" class="form-control" formControlName="mail" placeholder="{{ profile.mail }}">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="username">Nombre de Usuario</label>
-              <input type="text" class="form-control" id="username" placeholder="{{ profile.username }}" readonly>
-            </div>
-            <div class="form-group col-md-4">
-              <label>Contraseña</label>
-              <label>Rol del usuario</label>
-              <select class="custom-select" formControlName="role_id">
-                <option *ngFor="let item of roles"  value="{{item.id}}" selected>{{item.role}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="offset-md-2 col-md-8 meet">
-            <div class="row justify-content-center">
-              <a (click)="save()" class="mb-5 btn col-md-8">Guardar cambios</a>
-            </div>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
+
 </div>

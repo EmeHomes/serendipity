@@ -1,62 +1,65 @@
-<app-header-app></app-header-app>
-<div class="backTop user-profile profile mx-auto">
-  <div class="">
+<div class="container-fluid">
+  <app-header-app></app-header-app>
+  <div class="bg-light user-profile profile mx-auto ">
     <div class="">
-      <div class="col-md-2 offset-md-5">
-        <img class="image" src="../../../../assets/images/avatar/user1.png" alt="icon user">
-        <div class="company">
-          <h4>Umbrella Corp.</h4>
-        </div>
-        <div class="">
-          <h5></h5>
+      <div class="">
+        <div class="col-md-2 offset-md-5">
+          <img class="image" src="../../../../assets/images/avatar/user1.png" alt="icon user">
+          <div class="company">
+            <h4>Umbrella Corp.</h4>
+          </div>
+          <div class="">
+            <h5></h5>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="backDown descriptions">
-      <form [formGroup]="userForm">
-        <div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label>Nombre de usuario</label>
-              <input type="text" class="form-control" formControlName="username" placeholder="Nombre de usuario">
+      <div class="backDown descriptions">
+        <form [formGroup]="userForm">
+          <div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Nombre de usuario</label>
+                <input type="text" class="form-control" formControlName="username" placeholder="Nombre de usuario">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Rol del usuario</label>
+                <select class="custom-select" formControlName="role_id">
+                  <option *ngFor="let item of roles" value="{{item.id}}" selected>{{item.role}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label>Nombre</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+              </div>
+              <div class="form-group col-md-4">
+                <label>1er Apellido</label>
+                <input type="text" class="form-control" formControlName="surname1" placeholder="Primer apellido">
+              </div>
+              <div class="form-group col-md-4">
+                <label>2do Apellido</label>
+                <input type="text" class="form-control" formControlName="surname2" placeholder="Segundo apellido">
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <label>Rol del usuario</label>
-              <select class="custom-select" formControlName="role_id">
-                <option *ngFor="let item of roles"  value="{{item.id}}" selected>{{item.role}}</option>
-              </select>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="mail" placeholder="Correo electrónico">
+              </div>
+              <div class="form-group col-md-12">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+              </div>
             </div>
-            <div class="form-group col-md-4">
-              <label>Nombre</label>
-              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
-            </div>
-            <div class="form-group col-md-4">
-              <label>1er Apellido</label>
-              <input type="text" class="form-control" formControlName="surname1" placeholder="Primer apellido">
-            </div>
-            <div class="form-group col-md-4">
-              <label>2do Apellido</label>
-              <input type="text" class="form-control" formControlName="surname2" placeholder="Segundo apellido">
+            <div class="offset-md-2 col-md-8 meet">
+              <div class="row justify-content-center">
+                <a (click)="save()" class="mb-5 btn col-md-8">Guardar cambios</a>
+              </div>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-12">
-              <label>Email</label>
-              <input type="email" class="form-control" formControlName="mail" placeholder="Correo electrónico">
-            </div>
-            <div class="form-group col-md-12">
-              <label>Contraseña</label>
-              <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
-            </div>
-          </div>
-          <div class="offset-md-2 col-md-8 meet">
-            <div class="row justify-content-center">
-              <a (click)="save()" class="mb-5 btn col-md-8">Guardar cambios</a>
-            </div>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
+
+</div>

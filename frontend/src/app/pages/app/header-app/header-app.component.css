@@ -1,8 +1,4 @@
-#light-gray{
-    background-color: #e5e5e5;
-    padding-left: 3rem;
-    border-image-width: 1rem;
-}
+
 
 .img-fluid{
     width: 100% \9;
@@ -10,4 +6,18 @@
 
 .navbar-nav {
   cursor: pointer;
+}
+
+.nav-item :hover {
+  color: #ccd993 !important;
+}
+
+.navbar-nav .nav-link :active {
+  color: #37918a !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  /* color: rgba(0,0,0,.5); */
+  color: whitesmoke;
+  font-size: smaller;
 }

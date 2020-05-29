@@ -36,8 +36,4 @@ export class HeaderAppComponent implements OnInit {
     element.scrollIntoView({behavior: 'smooth'});
   }
 
-  navigateToProfile() {
-    this.router.navigate(['profile-page/' + this.userId]);
-  }
-
 }

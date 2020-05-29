@@ -1,49 +1,51 @@
-<app-header-app></app-header-app>
-<div class="backTop user-profile profile mx-auto">
-  <div class="">
-    <div class="row">
-      <div class="col-md-2 offset-md-5">
-        <img class="image" src="../../../../assets/images/avatar/user1.png" alt="icon user">
-        <div class="company">
-          <h4>Umbrella Corp.</h4>
-        </div>
-        <div class="">
-          <h5></h5>
+<div class="container-fluid">
+  <app-header-app></app-header-app>
+  <div class="bg-light user-profile profile mx-auto">
+    <div class="">
+      <div class="row">
+        <div class="col-md-2 offset-md-5">
+          <img class="image" src="../../../../assets/images/logosimple.png" alt="icon user">
+          <div class="">
+            <h5></h5>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="backDown descriptions">
-      <form [formGroup]="taskForm">
-        <div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label>Nombre de la tarea</label>
-              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+      <div class="backDown descriptions">
+        <form [formGroup]="taskForm">
+          <div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label>Nombre de la tarea</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Asignar a</label>
+                <select class="custom-select" formControlName="user_id">
+                  <option *ngFor="let item of users" value="{{item.id}}" selected>{{item.name}}
+                    - {{item.role.role}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label>Estado de la tarea</label>
+                <select class="custom-select" formControlName="status_id">
+                  <option *ngFor="let item of status" value="{{item.id}}" selected>{{item.name}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-12">
+                <label>Descripcion</label>
+                <textarea rows="4" cols="50" class="form-control" formControlName="description"
+                          placeholder="Descripción"></textarea>
+              </div>
             </div>
-            <div class="form-group col-md-4">
-              <label>Asignar a</label>
-              <select class="custom-select" formControlName="user_id">
-                <option *ngFor="let item of users"  value="{{item.id}}" selected>{{item.name}} - {{item.role.role}}</option>
-              </select>
-            </div>
-            <div class="form-group col-md-4">
-              <label>Estado de la tarea</label>
-              <select class="custom-select" formControlName="status_id">
-                <option *ngFor="let item of status"  value="{{item.id}}" selected>{{item.name}}</option>
-              </select>
-            </div>
-            <div class="form-group col-md-12">
-              <label>Descripcion</label>
-              <textarea rows="4" cols="50" class="form-control" formControlName="description" placeholder="Descripción"></textarea>
+            <div class="offset-md-2 col-md-8 meet">
+              <div class="row justify-content-center">
+                <a (click)="save()" class="btn col-md-8">Guardar cambios</a>
+              </div>
             </div>
           </div>
-          <div class="offset-md-2 col-md-8 meet">
-            <div class="row justify-content-center">
-              <a (click)="save()" class="btn col-md-8">Guardar cambios</a>
-            </div>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
+
 </div>

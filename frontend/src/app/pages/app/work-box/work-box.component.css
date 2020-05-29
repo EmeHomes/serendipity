@@ -1,8 +1,8 @@
 .nav-link.active {
-  color: #ffb367;
+  color: #ccd993;
 }
 .nav-link {
-  color: #3d3a3a;
+  color: #37918a;
 }
 
 .task-name {
@@ -16,59 +16,77 @@
   font-size: 1rem;
 }
 
+@media only screen and (max-width:  840px) {
+  .nav-tabs{
+    position: relative;
+  }
+  .nav-tabs > li.active{
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    color: #ccd993;
+
+  }
+}
+
 .user-task {
   -webkit-box-shadow: 3px 3px 5px 6px #a7c2c0;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow:    3px 3px 5px 6px #a7c2c0;  /* Firefox 3.5 - 3.6 */
   box-shadow:         3px 3px 5px 6px #a7c2c0;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
   padding: 1rem;
   margin: 5px;
+  min-height: 20rem!important;
 }
 
 .contenedor-comenzada {
     padding: 40px;
-    background-color: #d5f0eeea;
+    background-color: #343A40;
     margin-bottom: 1rem;
+    ;
     }
 
 .tarea-comenzada {
     padding: 20px;
-    background-color: #b8e5e2da;
+    background-color: #6C757D;
     margin-bottom: 1rem;
 }
 
 .comenzada {
+
     border: 2px solid white;
-    background-color: #b8e5e2da;
+    background-color: #6C757D;
     color: white;
 }
 
 .titulo-comenzadas {
+    margin-top: 2rem;
     font-weight: bold;
-    color: #94dad3ec;
+    color: #ccd993;
 }
 
 
 .contenedor-pendiente {
   padding: 40px;
-  background-color: #d5f0eeea;
+  background-color: #343A40;
   margin-bottom: 1rem;
 }
 
 .tarea-pendiente {
   padding: 20px;
-  background-color: #b8e5e2da;
+  background-color: #6C757D;
   margin-bottom: 1rem;
 }
 
 .pendiente {
   border: 2px solid white;
-  background-color: #b8e5e2da;
+  background-color: #6C757D;
   color: white;
 }
 
 .titulo-pendientes {
+  margin-top: 2rem;
   font-weight: bold;
-  color: #94dad3ec;
+  color: #37918a;
 }
 
 

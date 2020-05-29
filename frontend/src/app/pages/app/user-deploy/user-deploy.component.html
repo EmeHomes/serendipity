@@ -1,29 +1,32 @@
-<app-header-app></app-header-app>
-<div class="row user-deploy">
-  <div class="col-md-10 mx-auto">
-    <form class="" [formGroup]="taskForm">
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label>Nombre de la tarea</label>
-          <input type="text" class="form-control" formControlName="name" placeholder="" readonly>
+<div class="container-fluid">
+  <app-header-app></app-header-app>
+  <div class="row user-deploy bg-light">
+    <div class="col-md-10 mx-auto">
+      <form class="" [formGroup]="taskForm">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label>Nombre de la tarea</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="" readonly>
+          </div>
+          <div class="form-group col-md-8">
+            <label>Descripción de la tarea</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="" readonly>
+          </div>
         </div>
-        <div class="form-group col-md-8">
-          <label>Descripción de la tarea</label>
-          <input type="text" class="form-control" formControlName="description" placeholder="" readonly>
+        <div class="form-row mt-4">
+          <div class="form-group col-md-6">
+            <select class="custom-select" formControlName="status_id">
+              <option *ngFor="let item of status" value="{{item.id}}" selected>{{item.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <button class="meet btn btn-block" (click)="save()">
+              Guardar cambios
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="form-row mt-4">
-        <div class="form-group col-md-6">
-          <select class="custom-select" formControlName="status_id">
-            <option *ngFor="let item of status"  value="{{item.id}}" selected>{{item.name}}</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-        <button class= "meet btn btn-block" (click)="save()">
-          Guardar cambios
-        </button>
-      </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
+
