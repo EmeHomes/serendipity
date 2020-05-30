@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {TaskService} from '../../../services/task.service';
 import {ProfileService} from '../../../services/profile.service';
 import {Router} from '@angular/router';
@@ -23,7 +23,7 @@ export class AdminPanelComponent implements OnInit {
     private taskService: TaskService,
     private profileService: ProfileService,
     private router: Router,
-    private sessionService: SessionService) {
+    public sessionService: SessionService) {
   }
 
   ngOnInit(): void {
@@ -117,7 +117,12 @@ export class AdminPanelComponent implements OnInit {
     const isDelete = confirm('Estás seguro de que quieres borrar ese usuario');
     if (isDelete) {
       this.profileService.deleteUser(userId).subscribe(res => {
-        this.redirectTo('/admin-panel');
+        if (1 === res) {
+          this.sessionService.successMessage = 'El usuario se ha borrado con éxito';
+          this.redirectTo('/admin-panel');
+        } else {
+          this.sessionService.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+        }
       });
     }
   }
@@ -133,7 +138,12 @@ export class AdminPanelComponent implements OnInit {
     const isDelete = confirm('¿Estás seguro que quieres borrar esta tarea?');
     if (isDelete) {
       this.taskService.deleteTask(taskId).subscribe(res => {
-        this.redirectTo('/admin-panel');
+        if (1 === res) {
+          this.sessionService.successMessage = 'La tarea se ha borrado con éxito';
+          this.redirectTo('/admin-panel');
+        } else {
+          this.sessionService.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+        }
       });
     }
   }

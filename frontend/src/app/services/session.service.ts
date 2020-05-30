@@ -8,4 +8,11 @@ import {UserModel} from '../models/user.model';
 
 export class SessionService {
   user: UserModel;
+  errorMessage;
+  successMessage;
+
+  clearAlerts() {
+    this.errorMessage   = '';
+    this.successMessage = ''
+  }
 }

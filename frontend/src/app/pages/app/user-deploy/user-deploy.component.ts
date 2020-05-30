@@ -18,6 +18,8 @@ export class UserDeployComponent implements OnInit {
   task: TaskModel;
   taskId;
   move;
+  errorMessage;
+  successMessage;
 
   constructor(
     private taskService: TaskService,
@@ -57,8 +59,18 @@ export class UserDeployComponent implements OnInit {
   }
 
   save() {
-    this.taskService.save(this.taskForm, this.task.id).subscribe();
-    alert('Tarea actualizada');
+    if (this.taskForm.invalid) {
+      this.errorMessage = 'Debes rellenar todos los campos para continuar';
+      return;
+    }
+    this.taskService.save(this.taskForm, this.task.id).subscribe(res => {
+      if (1 === res) {
+        this.successMessage = 'Los datos han sido actualizados con éxito';
+      } else {
+        this.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+      }
+    });
+
   }
 
 }

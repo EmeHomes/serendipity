@@ -1,5 +1,11 @@
 <app-header-app></app-header-app>
 <div class="row panel">
+  <div *ngIf="sessionService.errorMessage" class="col-md-12">
+    <ngb-alert type="danger" (close)="sessionService.errorMessage = ''">{{ sessionService.errorMessage }}</ngb-alert>
+  </div>
+  <div *ngIf="sessionService.successMessage" class="col-md-12">
+    <ngb-alert type="success" (close)="sessionService.successMessage = ''">{{ sessionService.successMessage }}</ngb-alert>
+  </div>
   <div class="col-md-2 register-left">
     <div class="row">
       <h4 class="title mt-2 mb-5">Panel de Administración</h4>

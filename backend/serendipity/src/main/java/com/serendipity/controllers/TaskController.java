@@ -49,10 +49,10 @@ public class TaskController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/task")
-    public String addTasks(@RequestParam int user_id, String name, String description, String start_date, String finish_date, int status_id) {
+    public int addTasks(@RequestParam int user_id, String name, String description, String start_date, String finish_date, int status_id) {
         Optional<Status> getStatusById = statusRepository.findById(status_id);
         if (!getStatusById.isPresent()) {
-            return "El estado con el id " + status_id + " no existe";
+            return 0;
         }
         Status status = getStatusById.get();
         Task n = new Task();
@@ -63,21 +63,20 @@ public class TaskController {
         n.setStart_date(start_date);
         n.setFinish_date(finish_date);
         this.taskRepository.save(n);
-        return "Tarea editada";
+        return 1;
     }
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/task/{id}")
-    public @ResponseBody
-    String updateTask(@PathVariable int id, @RequestParam String name, @RequestParam String description, @RequestParam int status_id, @RequestParam String start_date, @RequestParam String finish_date, @RequestParam int user_id) {
+    public int updateTask(@PathVariable int id, @RequestParam String name, @RequestParam String description, @RequestParam int status_id, @RequestParam String start_date, @RequestParam String finish_date, @RequestParam int user_id) {
         Optional<Status> getStatusById = statusRepository.findById(status_id);
         if (!getStatusById.isPresent()) {
-            return "El estado con el id " + status_id + " no existe";
+            return 0;
         }
 
         Optional<User> getUserById = userRepository.findById(user_id);
         if (!getUserById.isPresent()) {
-            return "El usuario con el id " + user_id + " no existe";
+            return 0;
         }
 
         Optional<Task> n = this.taskRepository.findById(id);
@@ -91,7 +90,7 @@ public class TaskController {
             found.setUser_id(user_id);
             taskRepository.save(found);
         });
-        return "Tarea guardada";
+        return 1;
     }
 
     @CrossOrigin(origins = "http://localhost:8080")

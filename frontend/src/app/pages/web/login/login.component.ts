@@ -10,8 +10,9 @@ import { SessionService } from '../../../services/session.service';
 })
 export class LoginComponent implements OnInit {
 
-  username = "user4";
-  password = "user4";
+  username = 'admin1';
+  password = 'admin1';
+  errorMessage;
 
   constructor(
     private router: Router,
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['user-view']);
         return;
       }
-      alert('Datos incorrectos');
+      this.errorMessage = 'Los datos son incorrectos';
     });
   }
 }

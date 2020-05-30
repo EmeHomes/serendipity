@@ -17,6 +17,8 @@ export class EditUserPageComponent implements OnInit {
   profile: UserModel;
   userForm: FormGroup;
   roles: RoleModel[];
+  errorMessage;
+  successMessage;
 
   constructor(
     private profileService: ProfileService,
@@ -55,7 +57,17 @@ export class EditUserPageComponent implements OnInit {
   }
 
   save() {
-    this.profileService.save(this.userForm, this.profile.id).subscribe(profile => alert('guardada o no'));
+    if (this.userForm.invalid) {
+      this.errorMessage = 'Debes rellenar todos los campos para continuar';
+      return;
+    }
+    this.profileService.save(this.userForm, this.profile.id).subscribe(res => {
+      if (1 === res) {
+        this.successMessage = 'El usuario se ha modificado con éxito';
+      } else {
+        this.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+      }
+    });
   }
 
   getRoles() {

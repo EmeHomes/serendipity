@@ -2,6 +2,12 @@
   <app-header-app></app-header-app>
 
   <div class="user-profile bg-light profile mx-auto">
+    <div *ngIf="errorMessage" class="col-md-12">
+      <ngb-alert type="danger" (close)="errorMessage = ''">{{ errorMessage }}</ngb-alert>
+    </div>
+    <div *ngIf="successMessage" class="col-md-12">
+      <ngb-alert type="success" (close)="successMessage = ''">{{ successMessage }}</ngb-alert>
+    </div>
     <div class="">
       <div class="row">
         <div class="col-md-2 offset-md-5">

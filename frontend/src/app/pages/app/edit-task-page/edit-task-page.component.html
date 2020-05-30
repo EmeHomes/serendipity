@@ -3,6 +3,12 @@
   <div class="bg-light user-profile profile mx-auto">
     <div class="">
       <div class="row">
+        <div *ngIf="errorMessage" class="col-md-12">
+          <ngb-alert type="danger" (close)="errorMessage = ''">{{ errorMessage }}</ngb-alert>
+        </div>
+        <div *ngIf="successMessage" class="col-md-12">
+          <ngb-alert type="success" (close)="successMessage = ''">{{ successMessage }}</ngb-alert>
+        </div>
         <div class="col-md-2 offset-md-5">
           <img class="image" src="../../../../assets/images/logosimple.png" alt="icon user">
           <div class="">

@@ -19,6 +19,8 @@ export class AddTaskComponent implements OnInit {
   taskForm: FormGroup;
   status: StatusModel[];
   users: UserModel[];
+  errorMessage;
+  successMessage;
 
   constructor(
     private taskService: TaskService,
@@ -42,7 +44,19 @@ export class AddTaskComponent implements OnInit {
     });
   }
   save() {
-    this.taskService.new(this.taskForm).subscribe(profile => alert('guardada o no'));
+    if (this.taskForm.invalid) {
+      this.errorMessage = 'Debes rellenar todos los campos para continuar';
+      return;
+    }
+
+    this.taskService.new(this.taskForm).subscribe(res => {
+      if (1 === res) {
+        this.successMessage = 'La tarea se ha creado con éxito';
+        this.taskForm.reset();
+      } else {
+        this.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+      }
+    });
   }
 
   getStatus() {

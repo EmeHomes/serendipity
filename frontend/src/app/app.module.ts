@@ -26,6 +26,8 @@ import { AddTaskComponent } from './pages/app/add-task/add-task.component';
 import { ParallaxPortalComponent } from './pages/web/parallax-portal/parallax-portal.component';
 import { AdminDeployComponent } from './pages/app/admin-deploy/admin-deploy.component';
 import {AuthorizatedGuard} from './services/authorizated-guard.service';
+import {NgbAlertModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +56,9 @@ import {AuthorizatedGuard} from './services/authorizated-guard.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbAlertModule,
+    NgbModule
   ],
   providers: [
     AuthorizatedGuard

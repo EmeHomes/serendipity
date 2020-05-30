@@ -20,6 +20,8 @@ export class EditTaskPageComponent implements OnInit {
   taskForm: FormGroup;
   status: StatusModel[];
   users: UserModel[];
+  errorMessage;
+  successMessage;
 
   constructor(
     private taskService: TaskService,
@@ -58,7 +60,17 @@ export class EditTaskPageComponent implements OnInit {
   }
 
   save() {
-    this.taskService.save(this.taskForm, this.task.id).subscribe(profile => console.log(profile));
+    if (this.taskForm.invalid) {
+      this.errorMessage = 'Debes rellenar todos los campos para continuar';
+      return;
+    }
+    this.taskService.save(this.taskForm, this.task.id).subscribe(res => {
+      if (1 === res) {
+        this.successMessage = 'La tarea se ha modificado con éxito';
+      } else {
+        this.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+      }
+    });
   }
 
   getStatus() {

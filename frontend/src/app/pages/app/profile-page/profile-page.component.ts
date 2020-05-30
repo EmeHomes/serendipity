@@ -16,6 +16,8 @@ export class ProfilePageComponent implements OnInit {
   userId;
   profile: UserModel;
   userForm: FormGroup;
+  errorMessage;
+  successMessage;
 
   constructor(
     private profileService: ProfileService,
@@ -50,7 +52,17 @@ export class ProfilePageComponent implements OnInit {
   }
 
   save() {
-    this.profileService.save(this.userForm, this.profile.id).subscribe(profile => console.log(profile));
+    if (this.userForm.invalid) {
+      this.errorMessage = 'Debes rellenar todos los campos para continuar';
+      return;
+    }
+    this.profileService.save(this.userForm, this.profile.id).subscribe(res => {
+      if (1 === res) {
+        this.successMessage = 'Los datos han sido actualizados con éxito';
+      } else {
+        this.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+      }
+    });
   }
 
 }

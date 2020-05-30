@@ -36,10 +36,10 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/users")
-    public @ResponseBody String addUser (@RequestParam String image, String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam int role_id,  @RequestParam String username, @RequestParam String mail, @RequestParam String password) {
+    public int addUser (@RequestParam String image, String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam int role_id,  @RequestParam String username, @RequestParam String mail, @RequestParam String password) {
         Optional<Role> getRoleById = roleRepository.findById(role_id);
         if (!getRoleById.isPresent()) {
-            return "El usuario con " + role_id + " no existe";
+            return 0;
         }
         Role role = getRoleById.get();
         User n = new User();
@@ -52,20 +52,20 @@ public class UserController {
         n.setMail(mail);
         n.setPassword(this.encoderHelper.encrypt(password));
         userRepository.save(n);
-        return "Usuario añadido";
+        return 1;
     }
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "/user/{id}")
-    public @ResponseBody String updateUser (@PathVariable int id, @RequestParam String image , @RequestParam int role_id, @RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam String mail) {
+    public int updateUser (@PathVariable int id, @RequestParam String image , @RequestParam int role_id, @RequestParam String name, @RequestParam String surname1, @RequestParam String surname2, @RequestParam String mail) {
         Optional<Role> getRoleById = roleRepository.findById(role_id);
         if (!getRoleById.isPresent()) {
-            return "El rol con el id " + role_id + " no existe";
+            return 0;
         }
         Role role = getRoleById.get();
         Optional<User> n = this.userRepository.findById(id);
         if (!n.isPresent()) {
-            return "El usuario no existe";
+            return 0;
         }
         n.ifPresent(found -> {
             found.setImage(image);
@@ -76,7 +76,7 @@ public class UserController {
             found.setMail(mail);
             userRepository.save(found);
         });
-        return "Usuario editado";
+        return 1;
     }
 
     @CrossOrigin(origins = "http://localhost:8080")

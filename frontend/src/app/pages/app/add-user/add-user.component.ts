@@ -18,6 +18,8 @@ export class AddUserComponent implements OnInit {
   userForm: FormGroup;
   userId;
   roles: RoleModel[];
+  errorMessage;
+  successMessage;
 
   constructor(
     private profileService: ProfileService,
@@ -45,7 +47,18 @@ export class AddUserComponent implements OnInit {
   }
 
   save() {
-    this.profileService.new(this.userForm).subscribe(profile => alert('guardado o no'));
+    if (this.userForm.invalid) {
+      this.errorMessage = 'Debes rellenar todos los campos para continuar';
+      return;
+    }
+    this.profileService.new(this.userForm).subscribe(res => {
+      if (1 === res) {
+        this.successMessage = 'El usuario ha sido creado con exito';
+        this.userForm.reset();
+      } else {
+        this.errorMessage = 'Ha ocurrido un error, inténtelo más tarde';
+      }
+    });
   }
 
   getRoles() {
