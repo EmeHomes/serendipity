@@ -22,7 +22,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label>Nombre de la tarea</label>
-                <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                <input maxlength="100" type="text" class="form-control" formControlName="name" placeholder="Nombre">
               </div>
               <div class="form-group col-md-4">
                 <label>Asignar a</label>
@@ -39,7 +39,7 @@
               </div>
               <div class="form-group col-md-12">
                 <label>Descripcion</label>
-                <textarea rows="4" cols="50" class="form-control" formControlName="description"
+                <textarea maxlength="255" rows="4" cols="50" class="form-control" formControlName="description"
                           placeholder="Descripción"></textarea>
               </div>
             </div>
