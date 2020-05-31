@@ -17,6 +17,11 @@
   border-radius: 5px;
 }
 
+.image {
+  padding: 2rem;
+  max-width: 10rem;
+}
+
 .meet:hover {
   background-color: #ffb367;
   color: white;
