@@ -17,8 +17,8 @@
           <div class="contenedor-comenzada opacity ">
             <div *ngFor="let task of tasks">
               <div *ngIf="task.status.id == 2" class="form-group row tarea-comenzada">
-                <div class="task-name col-md-5 ">{{ task.name }}</div>
-                <div class="task-description col-md-8 mt-3">{{ task.description }}</div>
+                <div class="task-name col-md-5 text-truncate">{{ task.name }}</div>
+                <div class="task-description text-truncate col-md-8 mt-3">{{ task.description }}</div>
                 <div class="task-button col-md-4"><button class="comenzada btn btn-lg btn-block" (click)="goToTask(task.id)">TAREA</button></div>
               </div>
             </div>
@@ -31,8 +31,8 @@
           <div class="contenedor-pendiente opacity">
             <div *ngFor="let task of tasks" class="">
               <div *ngIf="task.status.id == 1" class="form-group row tarea-pendiente">
-                <div class="task-name col-md-5 col-sm-12">{{ task.name }}</div>
-                <div class="task-description col-md-8 mt-3 col-sm-12">{{ task.description }}</div>
+                <div class="task-name col-md-5 col-sm-12 text-truncate">{{ task.name }}</div>
+                <div class="task-description text-truncate col-md-8 mt-3 col-sm-12">{{ task.description }}</div>
                 <div class="task-button col-md-4 col-sm-12"><button class="pendiente btn btn-lg btn-block" (click)="goToTask(task.id)">TAREA</button></div>
               </div>
             </div>
